@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>interactive_learning</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Aplication\Model\" />
+    <Folder Include="Aplication\Presenter\" />
+    <Folder Include="Aplication\View\" />
+  </ItemGroup>
+
+</Project>
