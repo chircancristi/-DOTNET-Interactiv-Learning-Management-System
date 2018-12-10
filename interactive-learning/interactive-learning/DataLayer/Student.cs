@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace interactive_learning.DataLayer
+namespace DataLayer
 {
-    class Student
+    public class Student
     {
         public Student(string firstName, string lastName, string course)
         {

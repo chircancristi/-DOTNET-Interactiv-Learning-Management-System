@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "interactive-learning/1.0.0": {
+      "ClassLibraries/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.2.0",
           "Microsoft.EntityFrameworkCore": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0"
         },
         "runtime": {
-          "interactive-learning.dll": {}
+          "ClassLibraries.dll": {}
         }
       },
       "EntityFramework/6.2.0": {
@@ -517,7 +517,7 @@
     }
   },
   "libraries": {
-    "interactive-learning/1.0.0": {
+    "ClassLibraries/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace interactive_learning.DataLayer
+namespace DataLayer
 {
-    class Profesor
+    public class Profesor
     {
         public Profesor(string firstName, string lastName, string course, List<Student> listOfStudents)
         {

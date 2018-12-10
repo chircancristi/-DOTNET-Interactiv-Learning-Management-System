@@ -3511,9 +3511,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\interactive-learning.csproj",
-      "projectName": "interactive-learning",
-      "projectPath": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\interactive-learning.csproj",
+      "projectUniqueName": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\ClassLibraries.csproj",
+      "projectName": "ClassLibraries",
+      "projectPath": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\ClassLibraries.csproj",
       "packagesPath": "C:\\Users\\bgaid\\.nuget\\packages\\",
       "outputPath": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\obj\\",
       "projectStyle": "PackageReference",
