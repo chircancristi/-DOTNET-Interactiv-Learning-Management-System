@@ -11,4 +11,8 @@
     <Folder Include="Aplication\View\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+
 </Project>

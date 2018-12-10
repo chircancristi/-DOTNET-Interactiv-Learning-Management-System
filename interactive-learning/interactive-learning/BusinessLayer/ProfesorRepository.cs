@@ -6,5 +6,6 @@ namespace interactive_learning.BusinessLayer
 {
     class ProfesorRepository : ITRepository
     {
+
     }
 }
