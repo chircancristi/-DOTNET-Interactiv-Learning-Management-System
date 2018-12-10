@@ -1,10 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
-namespace interactive_learning.BusinessLayer
+namespace BusinessLayer
 {
-    class StudentRepository : ITRepository
+    public class StudentRepository
     {
+        public UnitOfWork unitOfWork;
+
+        public StudentRepository(UnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
+        }
+
+        void CreateProfesor(DataLayer.Profesor profesor)
+        {
+            unitOfWork.ProfesorRepository.Add(profesor);
+        }
+
+        void RemoveProfesorByItsId(Guid Id)
+        {
+            var profesor = unitOfWork.ProfesorRepository.Entities.First(a => a.Id == Id);
+            unitOfWork.ProfesorRepository.Remove(profesor);
+            unitOfWork.Commit();
+        }
     }
 }

@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "interactive-learning", "interactive-learning\interactive-learning.csproj", "{90123F4D-0C9D-4317-891A-87F4239245C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraries", "interactive-learning\ClassLibraries.csproj", "{90123F4D-0C9D-4317-891A-87F4239245C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Executable", "Executable\Executable.csproj", "{A321EE67-8A1C-4FC3-B15C-8C7223EDC060}"
+	ProjectSection(ProjectDependencies) = postProject
+		{90123F4D-0C9D-4317-891A-87F4239245C0} = {90123F4D-0C9D-4317-891A-87F4239245C0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{90123F4D-0C9D-4317-891A-87F4239245C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90123F4D-0C9D-4317-891A-87F4239245C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90123F4D-0C9D-4317-891A-87F4239245C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A321EE67-8A1C-4FC3-B15C-8C7223EDC060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A321EE67-8A1C-4FC3-B15C-8C7223EDC060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A321EE67-8A1C-4FC3-B15C-8C7223EDC060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A321EE67-8A1C-4FC3-B15C-8C7223EDC060}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

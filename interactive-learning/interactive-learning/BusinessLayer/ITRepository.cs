@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
 
-namespace interactive_learning.BusinessLayer
+namespace BusinessLayer
 {
-    interface ITRepository
+    public interface ITRepository<T> where T : class
     {
+        IQueryable<T> Entities { get; }
+
+        void Remove(T entity);
+
+        void Add(T entity);
     }
 }
