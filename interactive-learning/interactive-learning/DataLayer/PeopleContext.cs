@@ -21,7 +21,7 @@ namespace DataLayer
             {
 
                 optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
-                Database=Literatura;Trusted_Connection=True;");
+                Database=InteractiveLearningDatabase;Trusted_Connection=True;");
 
             }
         }
@@ -35,7 +35,6 @@ namespace DataLayer
             modelBuilder.Entity<Profesor>().Property(t => t.FirstName).IsRequired();
             modelBuilder.Entity<Profesor>().Property(t => t.LastName).IsRequired();
             modelBuilder.Entity<Profesor>().Property(t => t.Course).IsRequired();
-            modelBuilder.Entity<Profesor>().Property(t => t.ListOfStudents).IsRequired();
 
             modelBuilder.Entity<Student>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<Student>().Property(t => t.FirstName).IsRequired();

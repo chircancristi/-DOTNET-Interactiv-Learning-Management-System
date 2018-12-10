@@ -5,6 +5,11 @@ namespace DataLayer
 {
     public class Profesor
     {
+        public Profesor()
+        {
+
+        }
+
         public Profesor(string firstName, string lastName, string course, List<Student> listOfStudents)
         {
             Id = Guid.NewGuid();

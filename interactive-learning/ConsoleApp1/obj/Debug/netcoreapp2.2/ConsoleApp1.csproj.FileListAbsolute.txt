@@ -1,0 +1,14 @@
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.deps.json
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.runtimeconfig.json
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.runtimeconfig.dev.json
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.pdb
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ClassLibraries.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\ClassLibraries.pdb
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csprojAssemblyReference.cache
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfoInputs.cache
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfo.cs
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csproj.CopyComplete
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.pdb
