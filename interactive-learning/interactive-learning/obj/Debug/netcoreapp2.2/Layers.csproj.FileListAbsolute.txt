@@ -1,0 +1,9 @@
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\Layers.deps.json
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\Layers.dll
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\Layers.pdb
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.csprojAssemblyReference.cache
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.csproj.CoreCompileInputs.cache
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.AssemblyInfoInputs.cache
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.AssemblyInfo.cs
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.dll
+F:\Facultate\dotnet\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.pdb
