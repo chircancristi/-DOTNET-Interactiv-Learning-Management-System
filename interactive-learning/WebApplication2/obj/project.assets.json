@@ -4450,7 +4450,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "ClassLibraries/1.0.0": {
+      "Layers/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
@@ -4459,10 +4459,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0"
         },
         "compile": {
-          "bin/placeholder/ClassLibraries.dll": {}
+          "bin/placeholder/Layers.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ClassLibraries.dll": {}
+          "bin/placeholder/Layers.dll": {}
         }
       }
     }
@@ -7936,11 +7936,10 @@
       ]
     },
     "System.Collections.Immutable/1.5.0": {
-      "sha512": "RGxi2aQoXgZ5ge0zxrKqI4PU9LrYYoLC+cnEnWXKsSduCOUhE1GEAAoTexUVT8RZOILQyy1B27HC8Xw/XLGzdQ==",
+      "sha512": "erLSnZLBCA8EKIE2bKtXynjWBWSoMlmCFrOOYN+sPKCeYd3oGj9h8hqRPODtsRlPANkOW7L8tEQlEadHbUXC6A==",
       "type": "package",
       "path": "system.collections.immutable/1.5.0",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -8036,11 +8035,10 @@
       ]
     },
     "System.ComponentModel.Annotations/4.5.0": {
-      "sha512": "IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
+      "sha512": "rQj1sVZa0jtt+RObqgxvBBm6Pwigmuq+cobsLG65487uuwPTl2eg1ksjmErJUyozRmwamo2KZN8Vyveif0edWA==",
       "type": "package",
       "path": "system.componentmodel.annotations/4.5.0",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -9099,11 +9097,10 @@
       ]
     },
     "System.IO.Pipelines/4.5.2": {
-      "sha512": "hKbZx0AW9N6OLeXrgdrKJH5k8goImfd89EuvRtZRv6v7qBhwRX1mXEASYkoYIenmNrVtj0HYv4/Rk68t1e3agA==",
+      "sha512": "Wrlfraisvf2RVdE4rryEsH2v6AoRQSZzfH2jwuOA9DwT0OvC2MmLAXdvPyF3/xeyvhWq9YuQMSPwHok8e5JjSA==",
       "type": "package",
       "path": "system.io.pipelines/4.5.2",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -9333,11 +9330,10 @@
       ]
     },
     "System.Memory/4.5.1": {
-      "sha512": "vcG3/MbfpxznMkkkaAblJi7RHOmuP7kawQMhDgLSuA1tRpRQYsFSCTxRSINDUgn2QNn2jWeLxv8er5BXbyACkw==",
+      "sha512": "oonnLQPZAGD21qtNMG4EtVmbYOInk2jV7M+g108B6OHOb67ZOaWnA/K8P5oQ6uK9wxKzB1iEXSChQOi2scKOqA==",
       "type": "package",
       "path": "system.memory/4.5.1",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -10204,11 +10200,10 @@
       ]
     },
     "System.Runtime.CompilerServices.Unsafe/4.5.1": {
-      "sha512": "qUJMNWhbm9oZ3XaMFiEMiYmRPszbnXIkRIi7+4b2Md2xZ6JUOepf0/kY3S85qistRohl9OdMe4PsO+RdG2kTIQ==",
+      "sha512": "x/3d5xb+mc9e4I2GOOT+HPRWMZLbYjNN/kYKsb0fyUKcWizn/t1CIrGRLIBhv7H0ptYEt+WTTztdPmwSUMyKig==",
       "type": "package",
       "path": "system.runtime.compilerservices.unsafe/4.5.1",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -12119,38 +12114,38 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "ClassLibraries/1.0.0": {
+    "Layers/1.0.0": {
       "type": "project",
-      "path": "../interactive-learning/ClassLibraries.csproj",
-      "msbuildProject": "../interactive-learning/ClassLibraries.csproj"
+      "path": "../interactive-learning/Layers.csproj",
+      "msbuildProject": "../interactive-learning/Layers.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "ClassLibraries >= 1.0.0",
+      "Layers >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bgaid\\.nuget\\packages\\": {},
+    "C:\\Users\\CRISTI\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\WebApplication2\\WebApplication.csproj",
+      "projectUniqueName": "E:\\facultate\\dotnet\\proiect\\interactive-learning\\WebApplication2\\WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\WebApplication2\\WebApplication.csproj",
-      "packagesPath": "C:\\Users\\bgaid\\.nuget\\packages\\",
-      "outputPath": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\WebApplication2\\obj\\",
+      "projectPath": "E:\\facultate\\dotnet\\proiect\\interactive-learning\\WebApplication2\\WebApplication.csproj",
+      "packagesPath": "C:\\Users\\CRISTI\\.nuget\\packages\\",
+      "outputPath": "E:\\facultate\\dotnet\\proiect\\interactive-learning\\WebApplication2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\bgaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\CRISTI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12163,8 +12158,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\ClassLibraries.csproj": {
-              "projectPath": "C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\ClassLibraries.csproj"
+            "E:\\facultate\\dotnet\\proiect\\interactive-learning\\interactive-learning\\Layers.csproj": {
+              "projectPath": "E:\\facultate\\dotnet\\proiect\\interactive-learning\\interactive-learning\\Layers.csproj"
             }
           }
         }
