@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\interactive-learning\ClassLibraries.csproj" />
+    <ProjectReference Include="..\interactive-learning\Layers.csproj" />
   </ItemGroup>
 
 </Project>
