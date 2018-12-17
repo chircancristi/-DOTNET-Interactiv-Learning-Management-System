@@ -941,7 +941,6 @@
       "type": "package",
       "path": "entityframework/6.2.0",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "content/net40/App.config.transform",
         "content/net40/Web.config.transform",
@@ -2181,7 +2180,6 @@
       "type": "package",
       "path": "system.interactive.async/3.2.0",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "lib/net45/System.Interactive.Async.dll",
         "lib/net45/System.Interactive.Async.xml",
@@ -3585,6 +3583,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\ConsoleApp1\\obj\\Executable.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

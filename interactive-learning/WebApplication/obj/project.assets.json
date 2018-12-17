@@ -7382,6 +7382,7 @@
       "type": "package",
       "path": "remotion.linq/2.2.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "lib/net35/Remotion.Linq.XML",
         "lib/net35/Remotion.Linq.dll",
@@ -12139,5 +12140,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\WebApplication\\obj\\WebApplication.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
