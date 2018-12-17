@@ -4,6 +4,12 @@ namespace DataLayer
 {
     public class Student
     {
+        public Guid Id { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Course { get; private set; }
+        public int Pluses { get; private set; }
+
         public Student(string firstName, string lastName, string course)
         {
             Id = Guid.NewGuid();
@@ -15,16 +21,16 @@ namespace DataLayer
             SetProperties(firstName, lastName, course);
         }
 
-        public Guid Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Course { get; private set; }
-
         private void SetProperties(string firstName, string lastName, string course)
         {
             FirstName = firstName;
             LastName = lastName;
             Course = course;
+        }
+
+        public void addPlus(int plusesNo = 0)
+        {
+            this.Pluses += plusesNo;
         }
     }
 }
