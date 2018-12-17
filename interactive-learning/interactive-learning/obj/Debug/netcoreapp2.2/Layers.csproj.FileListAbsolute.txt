@@ -25,3 +25,12 @@ E:/facultate/dotnet/proiect/interactive-learning/interactive-learning/obj/Debug/
 /home/anggabard/UAIC/an3/dotNET/-DOTNET-Interactiv-Learning-Management-System/interactive-learning/interactive-learning/obj/Debug/netcoreapp2.2/Layers.AssemblyInfo.cs
 /home/anggabard/UAIC/an3/dotNET/-DOTNET-Interactiv-Learning-Management-System/interactive-learning/interactive-learning/obj/Debug/netcoreapp2.2/Layers.dll
 /home/anggabard/UAIC/an3/dotNET/-DOTNET-Interactiv-Learning-Management-System/interactive-learning/interactive-learning/obj/Debug/netcoreapp2.2/Layers.pdb
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\Layers.deps.json
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\Layers.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\Layers.pdb
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.csprojAssemblyReference.cache
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.csproj.CoreCompileInputs.cache
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.AssemblyInfoInputs.cache
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.AssemblyInfo.cs
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\Layers.pdb
