@@ -12,15 +12,15 @@ namespace Executable
             PeopleContext peopleContext = new PeopleContext();
             var MyUnitOfWork = new UnitOfWork(peopleContext);
 
-            var student1 = new Student("Dani", "Alves", "Retele");
-            var student2 = new Student("Kendji", "Girac", "Muzica");
+            var student1 = new Student("Alex", "Stoica", "Retele");
+            var student2 = new Student("Tudor", "Melnic", "Franceza");
             var listOfStudents = new List<Student>
             {
                 student1,
                 student2
             };
 
-            var profesor = new Profesor("Alfa", "Omega", "detoate", listOfStudents);
+            var profesor = new Profesor("Valeriu", "Mardare", "Franceza", listOfStudents);
 
             MyUnitOfWork.StudentRepository.Add(student1);
             MyUnitOfWork.StudentRepository.Add(student2);

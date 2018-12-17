@@ -21,7 +21,7 @@ namespace DataLayer
             {
 
                 optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
-                Database=InteractiveLearningDatabase;Trusted_Connection=True;");
+                Database=People;Trusted_Connection=True;");
 
             }
         }
