@@ -1,5 +1,4 @@
-﻿using System;
-namespace interactive_learning.Server
+﻿namespace interactive_learning.Server
 {
     public class Server
     {

@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+
 namespace BusinessLayer
 {
     public class UnitOfWork : IUnitOfWork
@@ -10,28 +11,38 @@ namespace BusinessLayer
         public UnitOfWork(PeopleContext peopleContext)
         {
             _peopleContext = peopleContext;
-        }   
+        }  
+        
+        public UnitOfWork(PeopleContext peopleContext, InteractionContext interactionContext, CoursesContext coursesContext)
+        {
+            _peopleContext = peopleContext;
+            _interactionContext = interactionContext;
+            _coursesContext = coursesContext;
+        }
 
         public ITRepository<Student> StudentRepository =>
             new GenericRepository<Student>(_peopleContext);
+
         public ITRepository<Profesor> ProfesorRepository =>
             new GenericRepository<Profesor>(_peopleContext);
 
-        public ITRepository<Profesor> CourseRepository =>
-            new GenericRepository<Profesor>(_coursesContext);
+        public ITRepository<Course> CourseRepository =>
+            new GenericRepository<Course>(_coursesContext);
 
-        public ITRepository<Profesor> RoomRepository =>
-            new GenericRepository<Profesor>(_coursesContext);
+        public ITRepository<Room> RoomRepository =>
+            new GenericRepository<Room>(_coursesContext);
 
-        public ITRepository<Profesor> QuestionRepository =>
-            new GenericRepository<Profesor>(_interactionContext);
+        public ITRepository<Question> QuestionRepository =>
+            new GenericRepository<Question>(_interactionContext);
 
-        public ITRepository<Profesor> AnswerRepository =>
-            new GenericRepository<Profesor>(_interactionContext);
+        public ITRepository<Answer> AnswerRepository =>
+            new GenericRepository<Answer>(_interactionContext);
 
         public void Commit()
         {
             _peopleContext.SaveChanges();
+            _interactionContext.SaveChanges();
+            _coursesContext.SaveChanges();
         }
     }
 }

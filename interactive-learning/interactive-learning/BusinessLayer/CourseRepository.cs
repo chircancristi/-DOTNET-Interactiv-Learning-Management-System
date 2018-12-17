@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace BusinessLayer
 {
@@ -18,10 +17,10 @@ namespace BusinessLayer
             unitOfWork.CourseRepository.Add(course);
         }
 
-        void RemoveProfesorByItsId(Guid Id)
+        void RemoveCourseByItsId(Guid Id)
         {
-            var profesor = unitOfWork.ProfesorRepository.Entities.First(a => a.Id == Id);
-            unitOfWork.ProfesorRepository.Remove(profesor);
+            var course = unitOfWork.CourseRepository.Entities.First(a => a.Id == Id);
+            unitOfWork.CourseRepository.Remove(course);
             unitOfWork.Commit();
         }
     }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace interactive_learning.DataLayer
+namespace DataLayer
 {
     public class Answer
     {
@@ -8,12 +8,12 @@ namespace interactive_learning.DataLayer
         public Guid QuestionId { get; private set; }
         public String Content { get; private set; }
 
-        public Answer(Guid id, Guid ownerId, Guid questionId, string content)
+        public Answer(Guid ownerId, Guid questionId, string content)
         {
-            this.Id = id;
-            this.OwnerId = ownerId;
-            this.QuestionId = questionId;
-            this.Content = content;
+            Id = Guid.NewGuid();
+            OwnerId = ownerId;
+            QuestionId = questionId;
+            Content = content;
         }
     }
 }
