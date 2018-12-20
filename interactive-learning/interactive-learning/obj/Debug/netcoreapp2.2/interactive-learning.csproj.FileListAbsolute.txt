@@ -1,9 +1,0 @@
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\interactive-learning.deps.json
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\interactive-learning.dll
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\interactive-learning.csprojAssemblyReference.cache
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\interactive-learning.csproj.CoreCompileInputs.cache
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\interactive-learning.AssemblyInfoInputs.cache
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\interactive-learning.AssemblyInfo.cs
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\bin\Debug\netcoreapp2.2\interactive-learning.pdb
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\interactive-learning.dll
-C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\interactive-learning\obj\Debug\netcoreapp2.2\interactive-learning.pdb
