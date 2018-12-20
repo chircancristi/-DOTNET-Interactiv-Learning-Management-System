@@ -1,5 +1,6 @@
 ﻿using DataLayer;
 using BusinessLayer;
+using Models;
 
 namespace Executable
 {
@@ -12,7 +13,7 @@ namespace Executable
             var student1 = new Student("Alex", "Stoica", "Retele");
             var student2 = new Student("Tudor", "Melnic", "Franceza");
 
-            var profesor = new Profesor("Test", "Mardare", "Franceza");
+            var profesor = new Profesor("Valeriu", "Mardare", "Franceza");
 
             var course = new Course("Dotnet", profesor.Id);
 
@@ -41,12 +42,9 @@ namespace Executable
 
             MyUnitOfWork.Commit();
 
-            System.Console.Write(MyUnitOfWork.StudentRepository.GetStudentById(student1.Id).FirstName);
-            System.Console.Write(MyUnitOfWork.ProfesorRepository.GetProfesorById(profesor.Id).FirstName);
-            System.Console.Write(MyUnitOfWork.QuestionRepository.GetQuestionById(question1.Id).Content);
-            System.Console.Write(MyUnitOfWork.AnswerRepository.GetAnswerById(answer1.Id).Content);
-            System.Console.Write(MyUnitOfWork.CourseRepository.GetCourseById(course.Id).Name);
-            System.Console.Write(MyUnitOfWork.RoomRepository.GetRoomById(room.Id).CourseId);
+            var peopleModel = new PeopleModel();
+            System.Console.Write(peopleModel.GetStudent(student1.Id).FirstName);
+            System.Console.Write(peopleModel.GetProfesor(profesor.Id).FirstName);
             System.Console.Read();
         }
     }

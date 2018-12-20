@@ -932,6 +932,19 @@
         "runtime": {
           "bin/placeholder/Layers.dll": {}
         }
+      },
+      "WebApplication/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Layers": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WebApplication.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WebApplication.dll": {}
+        }
       }
     }
   },
@@ -3518,12 +3531,18 @@
       "type": "project",
       "path": "../interactive-learning/Layers.csproj",
       "msbuildProject": "../interactive-learning/Layers.csproj"
+    },
+    "WebApplication/1.0.0": {
+      "type": "project",
+      "path": "../WebApplication/WebApplication.csproj",
+      "msbuildProject": "../WebApplication/WebApplication.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Layers >= 1.0.0",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "WebApplication >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3558,6 +3577,9 @@
           "projectReferences": {
             "E:\\facultate\\dotnet\\proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\Layers.csproj": {
               "projectPath": "E:\\facultate\\dotnet\\proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\interactive-learning\\Layers.csproj"
+            },
+            "E:\\facultate\\dotnet\\proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\WebApplication\\WebApplication.csproj": {
+              "projectPath": "E:\\facultate\\dotnet\\proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\WebApplication\\WebApplication.csproj"
             }
           }
         }
