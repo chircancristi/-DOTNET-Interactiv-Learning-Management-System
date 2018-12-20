@@ -40,3 +40,7 @@ E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\intera
 E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.csproj.CopyComplete
 E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.dll
 E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.pdb
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\WebApplication.Views.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\WebApplication.Views.pdb
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\WebApplication.dll
+C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\WebApplication.pdb
