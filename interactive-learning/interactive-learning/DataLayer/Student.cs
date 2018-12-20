@@ -26,11 +26,12 @@ namespace DataLayer
             FirstName = firstName;
             LastName = lastName;
             Course = course;
+            Pluses = 0;
         }
 
-        public void addPlus(int plusesNo = 0)
+        public void addPlus()
         {
-            this.Pluses += plusesNo;
+            this.Pluses ++;
         }
     }
 }

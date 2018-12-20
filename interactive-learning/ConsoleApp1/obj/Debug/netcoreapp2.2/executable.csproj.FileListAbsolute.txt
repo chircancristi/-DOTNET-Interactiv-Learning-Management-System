@@ -26,3 +26,17 @@ C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System
 C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.csproj.CopyComplete
 C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.dll
 C:\BOGDAN\Facultate\DotNet\Proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.pdb
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Executable.deps.json
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Executable.runtimeconfig.json
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Executable.runtimeconfig.dev.json
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Executable.dll
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Executable.pdb
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Layers.dll
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\bin\Debug\netcoreapp2.2\Layers.pdb
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.csprojAssemblyReference.cache
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.csproj.CoreCompileInputs.cache
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.AssemblyInfoInputs.cache
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.AssemblyInfo.cs
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.csproj.CopyComplete
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.dll
+E:\facultate\dotnet\proiect\-DOTNET-Interactiv-Learning-Management-System\interactive-learning\ConsoleApp1\obj\Debug\netcoreapp2.2\Executable.pdb

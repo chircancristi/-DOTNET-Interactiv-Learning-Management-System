@@ -4,6 +4,11 @@ namespace DataLayer
 {
     public class Profesor
     {
+        public Guid Id { get; private set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Course { get; private set; }
+
         public Profesor()
         {
 
@@ -20,11 +25,7 @@ namespace DataLayer
             SetProperties(firstName, lastName, course);
         }
 
-        public Guid Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Course { get; private set; }
-
+        
         private void SetProperties(string firstName, string lastName, string course)
         {
             FirstName = firstName;

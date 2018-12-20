@@ -14,3 +14,15 @@
 - Structurarea codului în funcție de MVC.
 - Data layerul și baza de date aferentă pentru studenți și profesori.
 
+### Iterația 2 
+
+- Realizarea unei arhitecturii pentru pagina web și un prototip pentru interfață
+- Realizarea unui prototip pentru server 
+- Finalizarea layerului pentru date 
+- S-au stabilit următoarele microservicii<br> 
+  a) User management<br>
+  b) Courses management<br> 
+  c) Answer/Questions management
+ - Baza de date din iterația trecuta a fost împarțită în 3 baze de date mai micii penru a integrarea 
+ microserviciilor menționate mai sus. 
+ - S-au scris modelele pentru a obține și a scrie date in bazele de date menționate.
