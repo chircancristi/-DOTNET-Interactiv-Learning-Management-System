@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\interactive-learning\Layers.csproj" />
+    <ProjectReference Include="..\WebApplication\WebApplication.csproj" />
   </ItemGroup>
 
 </Project>
