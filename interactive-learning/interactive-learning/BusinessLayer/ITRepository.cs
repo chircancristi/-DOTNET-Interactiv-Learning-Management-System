@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using DataLayer; 
 
 namespace BusinessLayer
 {
@@ -11,10 +10,5 @@ namespace BusinessLayer
 
         void Add(T entity);
 
-        void Update(T entity);
-
-        PeopleContext GetPeopleContext();
-        InteractionContext GetInteractionContext();
-        CoursesContext GetCoursesContext();
     }
 }
