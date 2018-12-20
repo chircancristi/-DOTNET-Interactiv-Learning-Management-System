@@ -3584,12 +3584,6 @@
   },
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\BOGDAN\\Facultate\\DotNet\\Proiect\\-DOTNET-Interactiv-Learning-Management-System\\interactive-learning\\ConsoleApp1\\obj\\Executable.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-
+using DataLayer;
 namespace BusinessLayer
 {
     public interface ITRepository<T> where T : class
@@ -9,6 +9,5 @@ namespace BusinessLayer
         void Remove(T entity);
 
         void Add(T entity);
-
     }
 }

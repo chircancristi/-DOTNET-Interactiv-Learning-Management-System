@@ -12,9 +12,9 @@ namespace WebApplication.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly ITRepository<Student> _repository;
+        private readonly StudentRepository _repository;
 
-        public StudentController(ITRepository<Student> repository)
+        public StudentController(StudentRepository repository)
         {
             _repository = repository;
         }

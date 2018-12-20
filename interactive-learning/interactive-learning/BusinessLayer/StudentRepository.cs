@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using DataLayer;
 
 namespace BusinessLayer
 {
@@ -12,7 +13,7 @@ namespace BusinessLayer
             this.unitOfWork = unitOfWork;
         }
 
-        void CreateProfesor(DataLayer.Profesor profesor)
+        void CreateProfesor(Profesor profesor)
         {
             unitOfWork.ProfesorRepository.Add(profesor);
         }
@@ -22,6 +23,11 @@ namespace BusinessLayer
             var profesor = unitOfWork.ProfesorRepository.Entities.First(a => a.Id == Id);
             unitOfWork.ProfesorRepository.Remove(profesor);
             unitOfWork.Commit();
+        }
+
+        public PeopleContext GetPeopleContext()
+        {
+            return unitOfWork.GetPeopleContext();
         }
     }
 }

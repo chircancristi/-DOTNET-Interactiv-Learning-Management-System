@@ -20,6 +20,21 @@ namespace BusinessLayer
             _coursesContext = coursesContext;
         }
 
+        public PeopleContext GetPeopleContext()
+        {
+            return _peopleContext;
+        }
+
+        public InteractionContext GetInteractionContext()
+        {
+            return _interactionContext;
+        }
+
+        public CoursesContext GetCoursesContext()
+        {
+            return _coursesContext;
+        }
+
         public ITRepository<Student> StudentRepository =>
             new GenericRepository<Student>(_peopleContext);
 
