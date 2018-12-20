@@ -1,6 +1,0 @@
-﻿namespace TestModule
-{
-    class ProfesorTest
-    {
-    }
-}
