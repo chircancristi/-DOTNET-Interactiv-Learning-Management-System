@@ -7,17 +7,12 @@ namespace Executable
     {
         static void Main(string[] args)
         {
-            
-            PeopleContext peopleContext = new PeopleContext();
-            InteractionContext interactionContext = new InteractionContext();
-            CoursesContext coursesContext = new CoursesContext();
-
-            var MyUnitOfWork = new UnitOfWork(peopleContext, interactionContext, coursesContext);
+            var MyUnitOfWork = new UnitOfWork();
 
             var student1 = new Student("Alex", "Stoica", "Retele");
             var student2 = new Student("Tudor", "Melnic", "Franceza");
 
-            var profesor = new Profesor("Valeriu", "Mardare", "Franceza");
+            var profesor = new Profesor("Test", "Mardare", "Franceza");
 
             var course = new Course("Dotnet", profesor.Id);
 
@@ -45,6 +40,14 @@ namespace Executable
             MyUnitOfWork.AnswerRepository.Add(answer2);
 
             MyUnitOfWork.Commit();
+
+            System.Console.Write(MyUnitOfWork.StudentRepository.GetStudentById(student1.Id).FirstName);
+            System.Console.Write(MyUnitOfWork.ProfesorRepository.GetProfesorById(profesor.Id).FirstName);
+            System.Console.Write(MyUnitOfWork.QuestionRepository.GetQuestionById(question1.Id).Content);
+            System.Console.Write(MyUnitOfWork.AnswerRepository.GetAnswerById(answer1.Id).Content);
+            System.Console.Write(MyUnitOfWork.CourseRepository.GetCourseById(course.Id).Name);
+            System.Console.Write(MyUnitOfWork.RoomRepository.GetRoomById(room.Id).CourseId);
+            System.Console.Read();
         }
     }
 }

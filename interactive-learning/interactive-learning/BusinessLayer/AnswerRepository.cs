@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using DataLayer;
 
 namespace BusinessLayer
 {
-    class AnswerRepository
+    public class AnswerRepository<T> : ITRepository<T> where T : Answer
     {
-        public UnitOfWork unitOfWork;
+        private readonly InteractionContext _context;
 
-        public AnswerRepository(UnitOfWork unitOfWork)
+        private DbSet<T> _dbSet => _context.Set<T>();
+
+        public IQueryable<T> Entities => _dbSet;
+
+        public AnswerRepository(InteractionContext context)
         {
-            this.unitOfWork = unitOfWork;
+            _context = context;
         }
 
-        void CreateAnswer(DataLayer.Answer answer)
+        public void Remove(T entity)
         {
-            unitOfWork.AnswerRepository.Add(answer);
+            _dbSet.Remove(entity);
         }
 
-        void RemoveAnswerByItsId(Guid Id)
+        public void Add(T entity)
         {
-            var answer = unitOfWork.AnswerRepository.Entities.First(a => a.Id == Id);
-            unitOfWork.AnswerRepository.Remove(answer);
-            unitOfWork.Commit();
+            _dbSet.Add(entity);
+        }
+
+        public Answer GetAnswerById(Guid Id)
+        {
+            var answer = Entities.First(a => a.Id == Id);
+            return answer;
         }
     }
 }

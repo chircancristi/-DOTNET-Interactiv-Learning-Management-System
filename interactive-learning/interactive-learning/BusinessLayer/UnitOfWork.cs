@@ -8,18 +8,13 @@ namespace BusinessLayer
         private readonly InteractionContext _interactionContext;
         private readonly CoursesContext _coursesContext;
 
-        public UnitOfWork(PeopleContext peopleContext)
+        public UnitOfWork()
         {
-            _peopleContext = peopleContext;
+            _peopleContext = new PeopleContext();
+            _interactionContext = new InteractionContext();
+            _coursesContext = new CoursesContext();
         }  
-        
-        public UnitOfWork(PeopleContext peopleContext, InteractionContext interactionContext, CoursesContext coursesContext)
-        {
-            _peopleContext = peopleContext;
-            _interactionContext = interactionContext;
-            _coursesContext = coursesContext;
-        }
-
+    
         public PeopleContext GetPeopleContext()
         {
             return _peopleContext;
@@ -35,23 +30,23 @@ namespace BusinessLayer
             return _coursesContext;
         }
 
-        public ITRepository<Student> StudentRepository =>
-            new GenericRepository<Student>(_peopleContext);
+        public StudentRepository<Student> StudentRepository =>
+            new StudentRepository<Student>(_peopleContext);
 
-        public ITRepository<Profesor> ProfesorRepository =>
-            new GenericRepository<Profesor>(_peopleContext);
+        public ProfesorRepository<Profesor> ProfesorRepository =>
+            new ProfesorRepository<Profesor>(_peopleContext);
 
-        public ITRepository<Course> CourseRepository =>
-            new GenericRepository<Course>(_coursesContext);
+        public CourseRepository<Course> CourseRepository =>
+            new CourseRepository<Course>(_coursesContext);
 
-        public ITRepository<Room> RoomRepository =>
-            new GenericRepository<Room>(_coursesContext);
+        public RoomRepository<Room> RoomRepository =>
+            new RoomRepository<Room>(_coursesContext);
 
-        public ITRepository<Question> QuestionRepository =>
-            new GenericRepository<Question>(_interactionContext);
+        public QuestionRepository<Question> QuestionRepository =>
+            new QuestionRepository<Question>(_interactionContext);
 
-        public ITRepository<Answer> AnswerRepository =>
-            new GenericRepository<Answer>(_interactionContext);
+        public AnswerRepository<Answer> AnswerRepository =>
+            new AnswerRepository<Answer>(_interactionContext);
 
         public void Commit()
         {

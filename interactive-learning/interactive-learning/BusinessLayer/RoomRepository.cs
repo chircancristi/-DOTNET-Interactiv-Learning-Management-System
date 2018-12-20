@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using DataLayer;
 
 namespace BusinessLayer
 {
-    class RoomRepository
+    public class RoomRepository<T> : ITRepository<T> where T : Room
     {
-        public UnitOfWork unitOfWork;
+        private readonly CoursesContext _context;
 
-        public RoomRepository(UnitOfWork unitOfWork)
+        private DbSet<T> _dbSet => _context.Set<T>();
+
+        public IQueryable<T> Entities => _dbSet;
+
+        public RoomRepository(CoursesContext context)
         {
-            this.unitOfWork = unitOfWork;
+            _context = context;
         }
 
-        void CreateRoom(DataLayer.Room room)
+        public void Remove(T entity)
         {
-            unitOfWork.RoomRepository.Add(room);
+            _dbSet.Remove(entity);
         }
 
-        void RemoveRoomByItsId(Guid Id)
+        public void Add(T entity)
         {
-            var room = unitOfWork.RoomRepository.Entities.First(a => a.Id == Id);
-            unitOfWork.RoomRepository.Remove(room);
-            unitOfWork.Commit();
+            _dbSet.Add(entity);
+        }
+
+        public Room GetRoomById(Guid Id)
+        {
+            var room = Entities.First(a => a.Id == Id);
+            return room;
         }
     }
 }

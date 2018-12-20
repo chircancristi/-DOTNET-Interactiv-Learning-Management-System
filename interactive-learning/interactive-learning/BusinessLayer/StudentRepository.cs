@@ -1,33 +1,37 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using DataLayer;
 
 namespace BusinessLayer
 {
-    public class StudentRepository
+    public class StudentRepository<T> : ITRepository<T> where T : Student
     {
-        public UnitOfWork unitOfWork;
+        private readonly PeopleContext _context;
 
-        public StudentRepository(UnitOfWork unitOfWork)
+        private DbSet<T> _dbSet => _context.Set<T>();
+
+        public IQueryable<T> Entities => _dbSet;
+
+        public StudentRepository(PeopleContext context)
         {
-            this.unitOfWork = unitOfWork;
+            _context = context;
         }
 
-        void CreateProfesor(Profesor profesor)
+        public void Remove(T entity)
         {
-            unitOfWork.ProfesorRepository.Add(profesor);
+            _dbSet.Remove(entity);
         }
 
-        void RemoveProfesorByItsId(Guid Id)
+        public void Add(T entity)
         {
-            var profesor = unitOfWork.ProfesorRepository.Entities.First(a => a.Id == Id);
-            unitOfWork.ProfesorRepository.Remove(profesor);
-            unitOfWork.Commit();
+            _dbSet.Add(entity);
         }
 
-        public PeopleContext GetPeopleContext()
+        public Student GetStudentById(Guid Id)
         {
-            return unitOfWork.GetPeopleContext();
+            var student = Entities.First(a => a.Id == Id);
+            return student;
         }
     }
 }
