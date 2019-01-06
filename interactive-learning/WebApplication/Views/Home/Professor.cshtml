@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-flex">
+    <section class="users">
+        <h2 class="users__title">Online Users</h2>
+        <div class="users__flex">
+            <div class="user">
+                <h2 class="user__name">@ViewBag.userName</h2>
+                <div class="users__status-container">
+                    <i class="fas fa-minus-circle"></i>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="questions">
+        <div class="questions__content" id="questions">
+            <div class="question">
+                <h3 class="question-author">Popescu George</h3>
+                <p class="question-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+            <div class="question">
+                <h3 class="question-author">Popescu George</h3>
+                <p class="question-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+            <div class="question">
+                <h3 class="question-author">Popescu George</h3>
+                <p class="question-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+            <div class="question">
+                <h3 class="question-author">Popescu George</h3>
+                <p class="question-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+            <div class="question">
+                <h3 class="question-author">Popescu George</h3>
+                <p class="question-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+            <div class="question">
+                <h3 class="question-author">Popescu George</h3>
+                <p class="question-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+
+        </div>
+        <div class="questions__chat-container">
+            <form class="questions__chat-form" action="/action_page.php">
+                <input class="chat-form__input" type="text" name="question"><br>
+                <input class="chat-form__button" type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <section class="courses">
+        <h2 class="courses__title">Courses</h2>
+        <div class="courses__flex">
+            <div class="course" id="ML">
+                <span class="course__title">Machine learning</span>
+                <i id="MLarrow" class="fas fa-arrow-up"></i>
+            </div>
+            <div class="rooms-flex" id="roomML">
+                <div class="room">
+                    <span>Room 1</span>
+                    <button>Join room</button>
+                </div>
+                <div class="room">
+                    <span>Room 2</span>
+                    <button>Join room</button>
+                </div>
+                <div class="room">
+                    <span>Room 3</span>
+                    <button>Join room</button>
+                </div>
+                <div class="add-room__container"> <button>Add room</button> </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+

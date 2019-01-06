@@ -2,17 +2,19 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Sticky footer styles
--------------------------------------------------- */
+  -------------------------------------------------- */
+
 html {
-  font-size: 14px;
-  height: 100%;
+    font-size: 14px;
+    height: 100%;
 }
+
 @media (min-width: 768px) {
     html {
         font-family: "Courier New", Courier, monospace;
@@ -20,42 +22,59 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  height:90%;
-  overflow: hidden;
+    /* Margin bottom by footer height */
+    margin-top: 2em;
+    height: 90%;
+    overflow: hidden;
 }
+
 .container-flex {
     padding: 1em;
     display: flex;
     height: 100%;
 }
 
-.users, .courses {
-    text-align: center;
+.users {
+    width: 20%;
+}
+
+.courses {
     width: 25%;
+}
+
+.users,
+.courses {
+    text-align: center;
     border: 2px black solid;
     overflow: auto;
     background-color: #F2F5FB;
 }
 
-.users__flex, .courses__flex, .rooms-flex {
+.users__title,
+.courses__title {
+    margin-bottom: 1em;
+}
+
+.users__flex,
+.courses__flex,
+.rooms-flex {
     display: flex;
     flex-direction: column;
 }
@@ -63,21 +82,30 @@ body {
 .rooms-flex {
     display: none;
 }
-
-.user, .course {
-    padding: 1.5em;
-    margin-bottom: 1em;
-    margin-left: 0.3em;
+.user {
     width: 80%;
+    margin-left: 1em;
+}
+.course {
+    width: 90%;
+    margin-left: 0.5em;
+}
+.user,
+.course {
+    padding: 1em;
+    margin-bottom: 1em;
+    
+    position: relative;
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     transition: all 0.5s ease-in-out;
-    color: white;
+    color: #565656;
 }
 
 .user {
-    background-color: #40807B;
+    background-color: #D7CEC7;
 }
 
 .course {
@@ -86,14 +114,20 @@ body {
 
 .room {
     padding: 0.5em;
+    margin-left: 1em;
     margin-bottom: 0.5em;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     border: 1px black solid;
 }
 
 .users__status-container {
+    position: absolute;
     width: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 80%;
     display: flex;
     justify-content: space-between;
 }
@@ -110,7 +144,7 @@ body {
 }
 
 .questions {
-    width: 50%;
+    width: 55%;
     background-color: #F2F5FB;
     border-top: 2px black solid;
     border-bottom: 2px black solid;
@@ -127,10 +161,10 @@ body {
 .question {
     margin-top: 1em;
     position: relative;
-    width: 80%;
+    width: 50%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #92A5A4;
+    background-color: #DCC7AA;
     text-align: center;
     border-radius: 25px;
 }
@@ -143,29 +177,33 @@ body {
 }
 
 .questions__chat-form {
-    margin-top: 1em;
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
     width: 80%;
     height: 100%;
-    display: flex;
-    justify-content: center;
+    position: relative;
 }
 
 .chat-form__input {
-    width: 90%;
-    height: 70%;
+    width: 100%;
+    height: 50%;
 }
 
 .chat-form__button {
-    height: 75%;
+    margin-top: 0.1em;
+    position: absolute;
+    left: 70%;
+    height: 40%;
+    width: 30%;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px;
+    /* Vertically center the text there */
 }

@@ -6,8 +6,9 @@ namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Professor()
         {
+            @ViewBag.userName = "Dorel";
             return View();
         }
 
