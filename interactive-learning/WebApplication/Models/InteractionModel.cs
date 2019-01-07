@@ -31,7 +31,7 @@ namespace Models
 
         public List<Question> GetQuestionsByRoomId(Guid roomId)
         {
-            return _unitOfWork.QuestionRepository.GetQuestionByRoomId(roomId);
+            return _unitOfWork.QuestionRepository.GetQuestionsByRoomId(roomId);
         }
 
         public void MarkFavouriteAnswer(Guid answerId)
