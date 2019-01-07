@@ -1,29 +1,87 @@
-﻿using System;
+﻿using DataLayer;
+using BusinessLayer;
 
-namespace DataLayer
+namespace Executable
 {
-    public class Profesor
+    public class Program
     {
-        public Guid Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public Guid CourseId { get; private set; }
-
-        public Profesor()
+        static void Main(string[] args)
         {
+            var MyUnitOfWork = new UnitOfWork();
 
-        }
+            var student1 = new Student("Alex", "Stoica");
+            var student2 = new Student("Tudor", "Melnic");
 
-        public void Update(string firstName, string lastName, Guid courseId)
-        {
-            SetProperties(firstName, lastName, courseId);
-        }
-        
-        private void SetProperties(string firstName, string lastName, Guid courseId)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            CourseId = courseId;
+            var profesor = new Profesor();
+
+            var course = new Course("Dotnet", profesor.Id);
+            var course2 = new Course("CLIW", profesor.Id);
+
+            profesor.Update("Valeriu", "Mardare", course.Id);
+
+            var room = new Room(course.Id, profesor.Id);
+
+            var question1 = new Question(student1.Id, room.Id, "intrebare desteapta", "Se da cursul asta in sesiune?");
+
+            var question2 = new Question(student2.Id, room.Id, "alta intrebare desteapta", "Putem pleca?");
+
+            var answer1 = new Answer(profesor.Id, question1.Id, "Nu");
+            var answer2 = new Answer(profesor.Id, question2.Id, "Nu stiu");
+            var answer3 = new Answer(profesor.Id, question2.Id, "Eu sunt Patrut nu ma pricep");
+
+            MyUnitOfWork.StudentRepository.Add(student1);
+            MyUnitOfWork.StudentRepository.Add(student2);
+
+            MyUnitOfWork.ProfesorRepository.Add(profesor);
+
+            MyUnitOfWork.CourseRepository.Add(course);
+            MyUnitOfWork.RoomRepository.Add(room);
+
+            MyUnitOfWork.QuestionRepository.Add(question1);
+            MyUnitOfWork.QuestionRepository.Add(question2);
+
+            MyUnitOfWork.AnswerRepository.Add(answer1);
+            MyUnitOfWork.AnswerRepository.Add(answer2);
+            MyUnitOfWork.AnswerRepository.Add(answer3);
+
+            var relationship1 = new StudentCourseRelationship(student1.Id, course.Id);
+            var relationship2 = new StudentCourseRelationship(student2.Id, course.Id);
+            var relationship3 = new StudentCourseRelationship(student2.Id, course2.Id);
+
+            var StudRoomRel1 = new StudentRoomRelationship(student1.Id, room.Id);
+            var StudRoomRel2 = new StudentRoomRelationship(student2.Id, room.Id);
+            var StudRoomRel11 = new StudentRoomRelationship(student1.Id, room.Id);
+
+            MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship1);
+            MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship2);
+            MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship3);
+
+            MyUnitOfWork.StudentRoomRelationshipRepository.Add(StudRoomRel1);
+            MyUnitOfWork.StudentRoomRelationshipRepository.Add(StudRoomRel2);
+            MyUnitOfWork.StudentRoomRelationshipRepository.Add(StudRoomRel11);
+
+            MyUnitOfWork.Commit();
+            
+            var peopleModel = new PeopleModel();
+            var coursesModel = new CoursesModel();
+            var interactionModel = new InteractionModel();
+
+            //System.Console.Write(peopleModel.GetStudent(student1.Id).FirstName);
+            //System.Console.Write(peopleModel.GetProfesor(profesor.Id).FirstName);
+
+            foreach (Student student in coursesModel.GetStudentsByCourse(course.Id))
+            {
+                System.Console.WriteLine("Student la CourseId " + student.FirstName);
+            }
+            foreach (Answer answer in interactionModel.GetAnswersByQuestionId(question2.Id) )
+            {
+                System.Console.WriteLine(answer.Id);
+            }
+            foreach (Student student in coursesModel.GetStudentsByRoomId(room.Id))
+            {
+                System.Console.WriteLine("Student la RoomId " + student.FirstName);
+            }
+            System.Console.Read();
         }
     }
 }

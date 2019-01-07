@@ -14,11 +14,11 @@ namespace Executable
             var student1 = new Student("Alex", "Stoica");
             var student2 = new Student("Tudor", "Melnic");
 
-            var profesor = new Profesor("Valeriu", "Mardare", "Franceza");
-            var profesor2 = new Profesor("Gelu", "Dorel", "ML");
+            var profesor = new Profesor();
 
             var course = new Course("Dotnet", profesor.Id);
-            var course2 = new Course("CLIW", profesor2.Id);
+            var course2 = new Course("CLIW", profesor.Id);
+            profesor.Update("Valiu", "Mardare", course.Id);
 
             var room = new Room(course.Id, profesor.Id);
 
@@ -34,8 +34,7 @@ namespace Executable
             MyUnitOfWork.StudentRepository.Add(student2);
 
             MyUnitOfWork.ProfesorRepository.Add(profesor);
-            MyUnitOfWork.ProfesorRepository.Add(profesor2);
-
+            
             MyUnitOfWork.CourseRepository.Add(course);
             MyUnitOfWork.RoomRepository.Add(room);
 
