@@ -28,5 +28,10 @@ namespace Models
         {
             return _unitOfWork.AnswerRepository.GetAnswersByQuestionId(questionId);
         }
+
+        public List<Question> GetQuestionsByRoomId(Guid roomId)
+        {
+            return _unitOfWork.QuestionRepository.GetQuestionsByRoomId(roomId);
+        }
     }
 }
