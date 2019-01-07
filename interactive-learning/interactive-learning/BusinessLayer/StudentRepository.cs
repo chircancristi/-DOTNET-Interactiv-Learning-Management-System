@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using DataLayer;
+using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -35,3 +36,4 @@ namespace BusinessLayer
         }
     }
 }
+// select * from studenti 

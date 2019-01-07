@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace BusinessLayer
 {
-    public class StudentCourseRelationshipRepository<T> : ITRepository<T> where T : StudentCourseRelationship
+    public class StudentRoomRelationshipRepository<T> : ITRepository<T> where T : StudentRoomRelationship
     {
         private readonly CoursesContext _context;
 
@@ -14,7 +14,7 @@ namespace BusinessLayer
 
         public IQueryable<T> Entities => _dbSet;
 
-        public StudentCourseRelationshipRepository(CoursesContext context)
+        public StudentRoomRelationshipRepository(CoursesContext context)
         {
             _context = context;
         }
@@ -29,18 +29,17 @@ namespace BusinessLayer
             _dbSet.Add(entity);
         }
 
-        public StudentCourseRelationship GetRelationshipById(Guid Id)
+        public StudentRoomRelationship GetRelationshipById(Guid Id)
         {
             var relationship = Entities.First(a => a.Id == Id);
             return relationship;
         }
 
-        public List<StudentCourseRelationship> GetRelationshipsByCourse(Guid courseId)
+        public List<StudentRoomRelationship> GetRelationshipsByRoomId(Guid roomId)
         {
-            return _context.StudentCourseRelationships
-               .Where(a => a.CourseId == courseId)
-               .ToList();           
+            return _context.StudentRoomRelationships
+               .Where(a => a.RoomId == roomId)
+               .ToList();
         }
-
     }
 }

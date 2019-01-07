@@ -29,6 +29,7 @@ namespace DataLayer
         public DbSet<Course> Courses { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<StudentCourseRelationship> StudentCourseRelationships { get; set; }
+        public DbSet<StudentRoomRelationship> StudentRoomRelationships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,6 +38,8 @@ namespace DataLayer
             modelBuilder.Entity<Room>().Property(t => t.Id).IsRequired();
 
             modelBuilder.Entity<StudentCourseRelationship>().Property(t => t.Id).IsRequired();
+
+            modelBuilder.Entity<StudentRoomRelationship>().Property(t => t.Id).IsRequired();
         }
     }
 }

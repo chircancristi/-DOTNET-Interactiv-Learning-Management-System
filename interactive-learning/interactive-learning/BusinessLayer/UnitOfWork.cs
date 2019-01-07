@@ -51,6 +51,9 @@ namespace BusinessLayer
         public StudentCourseRelationshipRepository<StudentCourseRelationship> StudentCourseRelationshipRepository =>
             new StudentCourseRelationshipRepository<StudentCourseRelationship>(_coursesContext);
 
+        public StudentRoomRelationshipRepository<StudentRoomRelationship> StudentRoomeRelationshipRepository =>
+            new StudentRoomRelationshipRepository<StudentRoomRelationship>(_coursesContext);
+
         public void Commit()
         {
             _peopleContext.SaveChanges();

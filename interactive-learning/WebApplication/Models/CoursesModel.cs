@@ -34,5 +34,17 @@ namespace Models
            }
            return result;
         }
+
+        public List<Student> GetStudentsByRoomId(Guid roomId)
+        {
+            var relationships = _unitOfWork.StudentRoomeRelationshipRepository.GetRelationshipsByRoomId(roomId);
+
+            var result = new List<Student>();
+            foreach (StudentRoomRelationship relationship in relationships)
+            {
+                result.Add(_unitOfWork.StudentRepository.GetStudentById(relationship.StudentId));
+            }
+            return result;
+        }
     }
 }

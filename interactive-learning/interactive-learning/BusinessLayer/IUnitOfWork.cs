@@ -10,6 +10,8 @@ namespace BusinessLayer
         AnswerRepository<Answer> AnswerRepository { get; }
         CourseRepository<Course> CourseRepository { get; }
         RoomRepository<Room> RoomRepository { get; }
+        StudentCourseRelationshipRepository<StudentCourseRelationship> StudentCourseRelationshipRepository { get; }
+        StudentRoomRelationshipRepository<StudentRoomRelationship> StudentRoomRelationshipRepository { get; }
 
         /// <summary
         /// Commits all changes
