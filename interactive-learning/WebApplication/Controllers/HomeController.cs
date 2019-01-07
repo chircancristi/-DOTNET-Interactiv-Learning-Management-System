@@ -14,11 +14,12 @@ namespace WebApplication.Controllers
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
         Course course;
-        public IActionResult Professor(Guid id)
+        public IActionResult Professor()
         {
+            Guid id = Guid.Parse("1BB97798-030C-4173-A08A-08D674AF3A70");
             this.generateProfessor(id);
             List<Student> result = new List<Student>();
-            //result = courses.GetStudentsByCourse();
+            result = courses.GetStudentsByCourse(course.Id);
             @ViewBag.students = result;
             return View();
         }
@@ -26,7 +27,7 @@ namespace WebApplication.Controllers
         {
             Guid profesorId = id;
             profesor = people.GetProfesor(profesorId);
-            //course = courses.GetCourse(profesor.Course);
+            course = courses.GetCourse(profesor.CourseId);
 
         }
 
