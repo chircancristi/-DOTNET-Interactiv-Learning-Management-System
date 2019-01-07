@@ -14,5 +14,9 @@ namespace DataLayer
             ProfessorId = professorId;
             GeneralRoom = new Room(Id, ProfessorId);
         }
+
+        public Course()
+        {
+        }
     }
 }
