@@ -48,9 +48,17 @@ namespace Executable
             var relationship2 = new StudentCourseRelationship(student2.Id, course.Id);
             var relationship3 = new StudentCourseRelationship(student2.Id, course2.Id);
 
+            var StudRoomRel1 = new StudentRoomRelationship(student1.Id, room.Id);
+            var StudRoomRel2 = new StudentRoomRelationship(student2.Id, room.Id);
+            var StudRoomRel11 = new StudentRoomRelationship(student1.Id, room.Id);
+
             MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship1);
             MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship2);
             MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship3);
+
+            MyUnitOfWork.StudentRoomRelationshipRepository.Add(StudRoomRel1);
+            MyUnitOfWork.StudentRoomRelationshipRepository.Add(StudRoomRel2);
+            MyUnitOfWork.StudentRoomRelationshipRepository.Add(StudRoomRel11);
 
             MyUnitOfWork.Commit();
             
@@ -63,11 +71,15 @@ namespace Executable
 
             foreach (Student student in coursesModel.GetStudentsByCourse(course.Id))
             {
-                System.Console.WriteLine("Un student:" + student.FirstName);
+                System.Console.WriteLine("Student la CourseId " + student.FirstName);
             }
             foreach (Answer answer in interactionModel.GetAnswersByQuestionId(question2.Id) )
             {
                 System.Console.WriteLine(answer.Id);
+            }
+            foreach (Student student in coursesModel.GetStudentsByRoomId(room.Id))
+            {
+                System.Console.WriteLine("Student la RoomId " + student.FirstName);
             }
             System.Console.Read();
         }
