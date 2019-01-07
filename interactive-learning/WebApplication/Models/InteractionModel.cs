@@ -33,5 +33,12 @@ namespace Models
         {
             return _unitOfWork.QuestionRepository.GetQuestionByRoomId(roomId);
         }
+
+        public void MarkFavouriteAnswer(Guid answerId)
+        {
+            var answer = _unitOfWork.AnswerRepository.GetAnswerById(answerId);
+            answer.MarkAsFavourite();
+            _unitOfWork.AnswerRepository.Update(answer);
+        }
     }
 }

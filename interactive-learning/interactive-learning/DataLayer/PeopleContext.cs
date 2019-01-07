@@ -34,7 +34,6 @@ namespace DataLayer
             modelBuilder.Entity<Profesor>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<Profesor>().Property(t => t.FirstName).IsRequired();
             modelBuilder.Entity<Profesor>().Property(t => t.LastName).IsRequired();
-           
 
             modelBuilder.Entity<Student>().Property(t => t.Id).IsRequired();
             modelBuilder.Entity<Student>().Property(t => t.FirstName).IsRequired();

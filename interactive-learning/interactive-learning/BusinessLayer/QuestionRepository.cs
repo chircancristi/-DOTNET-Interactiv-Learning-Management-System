@@ -35,7 +35,7 @@ namespace BusinessLayer
             return question;
         }
 
-        public List<Question> GetQuestionByRoomId (Guid roomId)
+        public List<Question> GetQuestionsByRoomId (Guid roomId)
         {
             var result = _context.Questions
                 .Where(a => a.RoomId == roomId)
