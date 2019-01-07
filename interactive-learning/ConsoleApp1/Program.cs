@@ -11,8 +11,8 @@ namespace Executable
         {
             var MyUnitOfWork = new UnitOfWork();
 
-            var student1 = new Student("Alex", "Stoica", "Retele");
-            var student2 = new Student("Tudor", "Melnic", "Franceza");
+            var student1 = new Student("Alex", "Stoica");
+            var student2 = new Student("Tudor", "Melnic");
 
             var profesor = new Profesor("Valeriu", "Mardare", "Franceza");
 
@@ -26,7 +26,8 @@ namespace Executable
             var question2 = new Question(student2.Id, room.Id, "alta intrebare desteapta", "Putem pleca?");
 
             var answer1 = new Answer(profesor.Id, question1.Id, "Nu");
-            var answer2 = new Answer(profesor.Id, question2.Id, "Nu");
+            var answer2 = new Answer(profesor.Id, question2.Id, "Nu stiu");
+            var answer3 = new Answer(profesor.Id, question2.Id, "Eu sunt Patrut nu ma pricep");
 
             MyUnitOfWork.StudentRepository.Add(student1);
             MyUnitOfWork.StudentRepository.Add(student2);
@@ -41,6 +42,7 @@ namespace Executable
 
             MyUnitOfWork.AnswerRepository.Add(answer1);
             MyUnitOfWork.AnswerRepository.Add(answer2);
+            MyUnitOfWork.AnswerRepository.Add(answer3);
 
             var relationship1 = new StudentCourseRelationship(student1.Id, course.Id);
             var relationship2 = new StudentCourseRelationship(student2.Id, course.Id);
@@ -54,12 +56,18 @@ namespace Executable
             
             var peopleModel = new PeopleModel();
             var coursesModel = new CoursesModel();
+            var interactionModel = new InteractionModel();
+
             //System.Console.Write(peopleModel.GetStudent(student1.Id).FirstName);
             //System.Console.Write(peopleModel.GetProfesor(profesor.Id).FirstName);
+
             foreach (Student student in coursesModel.GetStudentsByCourse(course.Id))
             {
-                System.Console.WriteLine(coursesModel.GetStudentsByCourse(course.Id).Count);
-                System.Console.WriteLine(student.FirstName);
+                System.Console.WriteLine("Un student:" + student.FirstName);
+            }
+            foreach (Answer answer in interactionModel.GetAnswersByQuestionId(question2.Id) )
+            {
+                System.Console.WriteLine(answer.Id);
             }
             System.Console.Read();
         }

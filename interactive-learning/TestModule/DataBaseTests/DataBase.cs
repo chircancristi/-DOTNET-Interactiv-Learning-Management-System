@@ -9,8 +9,8 @@ namespace TestModule.DataBaseTests
    public class DataBase
     {
         public IUnitOfWork MyUnitOfWork = new UnitOfWork();
-        public Student student1 = new Student("Alex", "Stoica", "Retele");
-        public Student student2 = new Student("Tudor", "Melnic", "Franceza");
+        public Student student1 = new Student("Alex", "Stoica");
+        public Student student2 = new Student("Tudor", "Melnic");
 
         public Profesor profesor = new Profesor("Test", "Mardare", "Franceza");
 

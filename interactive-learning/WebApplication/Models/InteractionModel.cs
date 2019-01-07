@@ -1,6 +1,7 @@
 ﻿using System;
 using DataLayer;
 using BusinessLayer;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -21,6 +22,11 @@ namespace Models
         public Answer GetAnswer(Guid guid)
         {
             return _unitOfWork.AnswerRepository.GetAnswerById(guid);
+        }
+
+        public List<Answer> GetAnswersByQuestionId(Guid questionId)
+        {
+            return _unitOfWork.AnswerRepository.GetAnswersByQuestionId(questionId);
         }
     }
 }

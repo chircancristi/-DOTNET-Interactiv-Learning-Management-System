@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DataLayer;
+using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -32,6 +33,13 @@ namespace BusinessLayer
         {
             var answer = Entities.First(a => a.Id == Id);
             return answer;
+        }
+
+        public List<Answer> GetAnswersByQuestionId(Guid questionId)
+        {
+            return _context.Answers
+               .Where(a => a.QuestionId == questionId)
+               .ToList();
         }
     }
 }

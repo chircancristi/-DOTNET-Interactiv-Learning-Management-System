@@ -3,6 +3,34 @@
 }
 
 <div class="container-flex">
+    <section id="modalJS" class="modal-replyes">
+        <div class="modal-container">
+            <div class="modal-container__replyes">
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae quam ut enim placerat vestibulum ut at nisi. Duis ullamcorper feugiat mauris, vel facilisis tortor feugiat vitae. Nam accumsan nibh ex, vel venenatis libero egestas at. Nam non faucibus nibh. Sed vitae mauris sed erat lobortis euismod at vitae diam. Donec scelerisque, arcu a euismod sollicitudin, ante felis maximus erat, ut consectetur augue nibh nec est. Praesent vel finibus odio, vel volutpat justo. Integer mauris augue, aliquam non diam maximus, facilisis tempor ligula. Maecenas elementum augue id mauris elementum pulvinar. Duis tempor mauris quis lacus aliquam fermentum. Nullam pharetra dolor a dui pulvinar feugiat. Morbi eget ipsum ut libero placerat sollicitudin. Phasellus eget erat vel ante ullamcorper suscipit sed id tellus. Morbi quis nisi luctus, malesuada odio at, sagittis libero. Sed sollicitudin urna metus, in iaculis leo pellentesque vulputate. Suspendisse dapibus nisl ex, et commodo eros interdum quis. </p>
+                </div>
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                </div>
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                </div>
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                </div>
+            </div>
+            <div class="modal-container__input">
+                <input class="chat-form__input chat-form__input--modal" type="text" name="question"><br>
+                <div class="buttons__container buttons__container--modal">
+                      <input class="chat-form__button" type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="users">
         <h2 class="users__title">Online Users</h2>
         <div class="users__flex">
@@ -53,8 +81,12 @@
         <div class="questions__chat-container">
             <form class="questions__chat-form" action="/action_page.php">
                 <input class="chat-form__input" type="text" name="question"><br>
-                <input class="chat-form__button" type="submit" value="Submit">
+                <div class="buttons__container">
+                    <button id="closeRoomJS" class="close-room">Close Room</button>
+                    <input class="chat-form__button" type="submit" value="Submit">
+                </div>
             </form>
+           
         </div>
     </section>
     <section class="courses">
@@ -67,17 +99,17 @@
             <div class="rooms-flex" id="roomML">
                 <div class="room">
                     <span>Room 1</span>
-                    <button>Join room</button>
+                    <button class="rooms" id="room1JS">Join room</button>
                 </div>
                 <div class="room">
                     <span>Room 2</span>
-                    <button>Join room</button>
+                    <button class="rooms">Join room</button>
                 </div>
                 <div class="room">
                     <span>Room 3</span>
-                    <button>Join room</button>
+                    <button class="rooms">Join room</button>
                 </div>
-                <div class="add-room__container"> <button>Add room</button> </div>
+                <div class="add-room__container"> <button class="add-room__button">Add room</button> </div>
             </div>
         </div>
     </section>
