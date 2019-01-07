@@ -1,6 +1,7 @@
 ﻿using DataLayer;
 using BusinessLayer;
 using Models;
+using System.Collections.Generic;
 
 namespace Executable
 {
@@ -16,6 +17,7 @@ namespace Executable
             var profesor = new Profesor("Valeriu", "Mardare", "Franceza");
 
             var course = new Course("Dotnet", profesor.Id);
+            var course2 = new Course("CLIW", profesor.Id);
 
             var room = new Room(course.Id, profesor.Id);
 
@@ -40,11 +42,25 @@ namespace Executable
             MyUnitOfWork.AnswerRepository.Add(answer1);
             MyUnitOfWork.AnswerRepository.Add(answer2);
 
-            MyUnitOfWork.Commit();
+            var relationship1 = new StudentCourseRelationship(student1.Id, course.Id);
+            var relationship2 = new StudentCourseRelationship(student2.Id, course.Id);
+            var relationship3 = new StudentCourseRelationship(student2.Id, course2.Id);
 
+            MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship1);
+            MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship2);
+            MyUnitOfWork.StudentCourseRelationshipRepository.Add(relationship3);
+
+            MyUnitOfWork.Commit();
+            
             var peopleModel = new PeopleModel();
-            System.Console.Write(peopleModel.GetStudent(student1.Id).FirstName);
-            System.Console.Write(peopleModel.GetProfesor(profesor.Id).FirstName);
+            var coursesModel = new CoursesModel();
+            //System.Console.Write(peopleModel.GetStudent(student1.Id).FirstName);
+            //System.Console.Write(peopleModel.GetProfesor(profesor.Id).FirstName);
+            foreach (Student student in coursesModel.GetStudentsByCourse(course.Id))
+            {
+                System.Console.WriteLine(coursesModel.GetStudentsByCourse(course.Id).Count);
+                System.Console.WriteLine(student.FirstName);
+            }
             System.Console.Read();
         }
     }

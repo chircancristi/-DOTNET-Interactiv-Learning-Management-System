@@ -1,6 +1,7 @@
 ﻿using System;
 using DataLayer;
 using BusinessLayer;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -21,6 +22,17 @@ namespace Models
         public Room GetRoom(Guid guid)
         {
             return _unitOfWork.RoomRepository.GetRoomById(guid);
+        }
+
+        public List<Student> GetStudentsByCourse(Guid courseId)
+        {
+           var relationships = _unitOfWork.StudentCourseRelationshipRepository.GetRelationshipsByCourse(courseId);
+           var result = new List<Student>();
+           foreach (StudentCourseRelationship relationship in relationships)
+           {
+                result.Add(_unitOfWork.StudentRepository.GetStudentById(relationship.StudentId));
+           }
+           return result;
         }
     }
 }
