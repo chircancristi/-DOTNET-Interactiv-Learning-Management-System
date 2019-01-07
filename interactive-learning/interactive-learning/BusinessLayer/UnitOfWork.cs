@@ -48,6 +48,9 @@ namespace BusinessLayer
         public AnswerRepository<Answer> AnswerRepository =>
             new AnswerRepository<Answer>(_interactionContext);
 
+        public StudentCourseRelationshipRepository<StudentCourseRelationship> StudentCourseRelationshipRepository =>
+            new StudentCourseRelationshipRepository<StudentCourseRelationship>(_coursesContext);
+
         public void Commit()
         {
             _peopleContext.SaveChanges();
