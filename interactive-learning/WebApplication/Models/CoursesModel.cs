@@ -37,7 +37,7 @@ namespace Models
 
         public List<Student> GetStudentsByRoomId(Guid roomId)
         {
-            var relationships = _unitOfWork.StudentRoomeRelationshipRepository.GetRelationshipsByRoomId(roomId);
+            var relationships = _unitOfWork.StudentRoomRelationshipRepository.GetRelationshipsByRoomId(roomId);
 
             var result = new List<Student>();
             foreach (StudentRoomRelationship relationship in relationships)

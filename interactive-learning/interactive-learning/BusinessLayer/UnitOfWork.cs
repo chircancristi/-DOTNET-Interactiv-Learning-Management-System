@@ -51,7 +51,7 @@ namespace BusinessLayer
         public StudentCourseRelationshipRepository<StudentCourseRelationship> StudentCourseRelationshipRepository =>
             new StudentCourseRelationshipRepository<StudentCourseRelationship>(_coursesContext);
 
-        public StudentRoomRelationshipRepository<StudentRoomRelationship> StudentRoomeRelationshipRepository =>
+        public StudentRoomRelationshipRepository<StudentRoomRelationship> StudentRoomRelationshipRepository =>
             new StudentRoomRelationshipRepository<StudentRoomRelationship>(_coursesContext);
 
         public void Commit()
