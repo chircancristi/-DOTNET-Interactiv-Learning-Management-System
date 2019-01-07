@@ -3,10 +3,41 @@
 
 // Write your JavaScript code.
 const courses = document.getElementsByClassName("course");
-
+const rooms = document.getElementsByClassName("rooms");
+const replys = document.getElementsByClassName("questions-answer__trigger");
+const modal = document.getElementById("modalJS");
 for (let i = 0; i < courses.length; i++) {
     courses[i].addEventListener("click", function () {
         showRooms(courses[i]);
+    })
+}
+
+for (let i = 0; i < replys.length; i++) {
+    replys[i].addEventListener("click", function () {
+        modal.style.display = "block";
+    })
+}
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+for (let i = 0; i < rooms.length; i++) {
+    rooms[i].addEventListener("click", function () {
+       
+        if (rooms[i].innerHTML === "Join room")
+        {
+            
+            for (let j = 0; j < rooms.length; j++)
+                rooms[j].innerHTML = "Join room";
+            rooms[i].innerHTML = "Leave room";
+           
+            
+        }
+        else
+        {
+            rooms[i].innerHTML = "Join room";
+        }
     })
 }
 window.onload = function () {
