@@ -14,10 +14,12 @@ namespace Executable
             var student1 = new Student("Alex", "Stoica");
             var student2 = new Student("Tudor", "Melnic");
 
-            var profesor = new Profesor("Valeriu", "Mardare", "Franceza");
+            var profesor = new Profesor();
 
             var course = new Course("Dotnet", profesor.Id);
             var course2 = new Course("CLIW", profesor.Id);
+
+            profesor.Update("Valeriu", "Mardare", course.Id);
 
             var room = new Room(course.Id, profesor.Id);
 
