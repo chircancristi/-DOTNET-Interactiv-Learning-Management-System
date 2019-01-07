@@ -11,7 +11,7 @@ namespace DataLayer
 
         public Profesor()
         {
-
+            Id = Guid.NewGuid();
         }
 
         public void Update(string firstName, string lastName, Guid courseId)

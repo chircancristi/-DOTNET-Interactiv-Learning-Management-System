@@ -55,7 +55,7 @@ namespace WebApplication
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("profesor", "profesor",
+                routes.MapRoute("profesor", "professor",
                 defaults: new { controller = "Home", action = "professor" });
                 routes.MapRoute("student", "student",
                     defaults: new { controller = "Home", action = "student" });

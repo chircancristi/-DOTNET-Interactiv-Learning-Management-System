@@ -6,13 +6,17 @@ namespace DataLayer
         public Guid Id { get; private set; }
         public string Name { get; private set; }
         public Guid ProfessorId { get; private set; }
-        public Room GeneralRoom { get; private set; }
+        public Guid GeneralRoomId { get; private set; }
 
         public Course(string name, Guid professorId) {
             Id = Guid.NewGuid();
             Name = name;
             ProfessorId = professorId;
-            GeneralRoom = new Room(Id, ProfessorId);
+
+        }
+        public void  SetGeneralRoomId(Room room)
+        {   
+            this.GeneralRoomId = room.Id;
         }
 
         public Course()

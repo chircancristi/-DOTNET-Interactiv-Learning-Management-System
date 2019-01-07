@@ -40,5 +40,10 @@ namespace Models
             answer.MarkAsFavourite();
             _unitOfWork.AnswerRepository.Update(answer);
         }
+        public void AddQuestion(Question question)
+        {
+            _unitOfWork.QuestionRepository.Add(question);
+            _unitOfWork.Commit();
+        }
     }
 }

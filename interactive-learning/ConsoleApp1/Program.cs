@@ -22,14 +22,21 @@ namespace Executable
             profesor.Update("Valeriu", "Mardare", course.Id);
 
             var room = new Room(course.Id, profesor.Id);
+            var room2 = new Room(course.Id, profesor.Id);
 
-            var question1 = new Question(student1.Id, room.Id, "intrebare desteapta", "Se da cursul asta in sesiune?");
+            course.SetGeneralRoomId(room);
+            course2.SetGeneralRoomId(room2);
 
-            var question2 = new Question(student2.Id, room.Id, "alta intrebare desteapta", "Putem pleca?");
+            var question1 = new Question(student1.Id, room.Id, "student", "Se da cursul asta in sesiune?");
+
+            var question2 = new Question(student2.Id, room.Id, "student", "Putem pleca?");
+            var question3 = new Question(student2.Id, room.Id, "student",  "Cum rezolvam?");
+            var question4 = new Question(student2.Id, room2.Id, "student", "Se face seminarul maine?");
+            var question5 = new Question(student2.Id, room2.Id, "student", "Are cineva modele de examen?");
 
             var answer1 = new Answer(profesor.Id, question1.Id, "Nu");
             var answer2 = new Answer(profesor.Id, question2.Id, "Nu stiu");
-            var answer3 = new Answer(profesor.Id, question2.Id, "Eu sunt Patrut nu ma pricep");
+            var answer3 = new Answer(profesor.Id, question2.Id, "Merge");
 
             MyUnitOfWork.StudentRepository.Add(student1);
             MyUnitOfWork.StudentRepository.Add(student2);
@@ -37,10 +44,18 @@ namespace Executable
             MyUnitOfWork.ProfesorRepository.Add(profesor);
 
             MyUnitOfWork.CourseRepository.Add(course);
+            MyUnitOfWork.CourseRepository.Add(course2);
+
             MyUnitOfWork.RoomRepository.Add(room);
+            MyUnitOfWork.RoomRepository.Add(room2);
+
 
             MyUnitOfWork.QuestionRepository.Add(question1);
             MyUnitOfWork.QuestionRepository.Add(question2);
+            MyUnitOfWork.QuestionRepository.Add(question3);
+            MyUnitOfWork.QuestionRepository.Add(question4);
+            MyUnitOfWork.QuestionRepository.Add(question5);
+            
 
             MyUnitOfWork.AnswerRepository.Add(answer1);
             MyUnitOfWork.AnswerRepository.Add(answer2);
