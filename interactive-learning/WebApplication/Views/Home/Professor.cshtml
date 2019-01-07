@@ -53,16 +53,16 @@
             @for (int i = 0; i < @ViewBag.questions.Count; i++)
             {
                 <div class="question">
-                    <h3 class="question-author">@ViewBag.ownersName[i]</h3>
-                    <p class="question-string"> @ViewBag.questions[i].content </p>
-                    <a class="questions-answer__trigger" id="@ViewBag.questions[i].id" href="#"> Vezi raspunsuri</a>
+                    <h3 class="question-author">@ViewBag.owners[i]</h3>
+                    <p class="question-string"> @ViewBag.questions[i].Content </p>
+                    <a class="questions-answer__trigger" id="@ViewBag.questions[i].Id" href="#"> Vezi raspunsuri</a>
                 </div>
             }
 
         </div>
         <div class="questions__chat-container">
-            <form  method="POST" class="questions__chat-form" >
-                <input  for="questionProfessor" class="chat-form__input" type="text" name="question"><br>
+            <form  method="POST"  class="questions__chat-form" >
+                <input  for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor"><br>
                 <div class="buttons__container">
                     <button id="closeRoomJS" class="close-room">Close Room</button>
                     <input id="questionProfessor" class="chat-form__button" type="submit" value="Submit">
