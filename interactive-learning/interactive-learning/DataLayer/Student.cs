@@ -7,29 +7,23 @@ namespace DataLayer
         public Guid Id { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public int Pluses { get; private set; }
 
-        public Student(string firstName, string lastName, int pluses)
+        public Student(string firstName, string lastName)
         {
             Id = Guid.NewGuid();
-            SetProperties(firstName, lastName, pluses);
+            SetProperties(firstName, lastName);
         }
 
-        public void Update(string firstName, string lastName, int pluses)
+        public void Update(string firstName, string lastName)
         {
-            SetProperties(firstName, lastName, pluses);
+            SetProperties(firstName, lastName);
         }
 
-        private void SetProperties(string firstName, string lastName, int pluses)
+        private void SetProperties(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
-            Pluses = pluses;
         }
 
-        public void addPlus()
-        {
-            this.Pluses ++;
-        }
     }
 }
