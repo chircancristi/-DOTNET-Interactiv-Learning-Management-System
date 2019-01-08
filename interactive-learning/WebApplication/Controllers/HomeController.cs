@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using DataLayer;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -14,12 +13,14 @@ namespace WebApplication.Controllers
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("A8523E29-F792-4640-8351-82949B522A90");
+        Guid id = Guid.Parse("6F17AA98-75E3-46DC-BBB9-8FE57CECC6E8");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
         List<String> ownersName = new List<String>();
+        List<String> answerContent = new List<String>();
         List<Room> rooms = new List<Room>();
+        List<Answer> Answers = new List<Answer>();
 
         public IActionResult Professor()
         {
@@ -38,6 +39,45 @@ namespace WebApplication.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult ProfessorAnswers(Guid id)
+        {
+            String firstName, lastName, fullName;
+            this.GenerateProfessor();
+            SetData();
+            
+            Answers = interaction.GetAnswersByQuestionId(id);
+            ownersName = new List<string>();
+            answerContent = new List<string>();
+            
+            for (int i = 0; i < Answers.Count; i++)
+            {
+                answerContent.Add(Answers[i].Content);
+                if (Answers[i].Type.Equals("professor"))
+                {
+                    firstName = people.GetProfesor(Answers[i].OwnerId).FirstName;
+                    lastName = people.GetProfesor(Answers[i].OwnerId).LastName;
+                }
+                else
+                {
+                    firstName = people.GetStudent(Answers[i].OwnerId).FirstName;
+                    lastName = people.GetStudent(Answers[i].OwnerId).LastName;
+                }
+                fullName = firstName + " " + lastName;
+                ownersName.Add(fullName);
+            }
+         
+           
+            return Json(new 
+            { 
+                Authors = ownersName, 
+                Answers = answerContent,
+                NumberOfAnswers = ownersName.Count
+            }); 
+        }
+
+
+
         private void SetData()
         {
             
@@ -51,15 +91,7 @@ namespace WebApplication.Controllers
         }
         
         [HttpPost]
-        public IActionResult ProfessorAnswers(Guid id)
-        {
-            SetData();
-            @ViewBag.answers = true;
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AddRoom()
+        public ActionResult AddRoom()
         {
             Room room = new Room(course.Id, profesor.Id);
             courses.AddRoom(room);

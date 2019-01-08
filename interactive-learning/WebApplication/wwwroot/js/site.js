@@ -6,6 +6,9 @@ const courses = document.getElementsByClassName("course");
 const rooms = document.getElementsByClassName("rooms");
 const replys = document.getElementsByClassName("questions-answer__trigger");
 const modal = document.getElementById("modalJS");
+const replyContentJS = document.getElementById("replyContentJS");
+var http = new XMLHttpRequest();
+ 
 
 for (let i = 0; i < courses.length; i++) {
     courses[i].addEventListener("click", function () {
@@ -15,18 +18,33 @@ for (let i = 0; i < courses.length; i++) {
 
 for (let i = 0; i < replys.length; i++) {
     replys[i].addEventListener("click", function () {
-        modal.style.display = "block";
+       
         let id = replys[i].id;
-        var http = new XMLHttpRequest();
-        var url = '/Home/ProfessorAnswers';
-        var params = 'orem='+id;
-        http.open('POST', url, true);
+        
+        var url = 'ProfessorAnswers';
+        var params = 'id='+id;
+        
+        $.post('/ProfessorAnswers', params).done(function (response)
+        {
+            console.log(response);
+            modal.style.display = "block";
+            let content = response;
 
-        //Send the proper header information along with the request
-        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        http.send(params);
+           
+
+            let body = " ";
+           
+          
+            for (let i = 0; i < content.numberOfAnswers; i++)
+                body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
+            console.log(body);
+            replyContentJS.innerHTML = body;
+
+        })
+        
     })
 }
+
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";

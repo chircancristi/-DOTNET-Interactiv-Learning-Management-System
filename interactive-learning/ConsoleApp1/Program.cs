@@ -34,9 +34,9 @@ namespace Executable
             var question4 = new Question(student2.Id, room2.Id, "student", "Se face seminarul maine?");
             var question5 = new Question(student2.Id, room2.Id, "student", "Are cineva modele de examen?");
 
-            var answer1 = new Answer(profesor.Id, question1.Id, "Nu");
-            var answer2 = new Answer(profesor.Id, question2.Id, "Nu stiu");
-            var answer3 = new Answer(profesor.Id, question2.Id, "Merge");
+            var answer1 = new Answer(profesor.Id, question1.Id, "Nu","professor");
+            var answer2 = new Answer(profesor.Id, question2.Id, "Nu stiu", "professor");
+            var answer3 = new Answer(profesor.Id, question2.Id, "Merge", "professor");
 
             MyUnitOfWork.StudentRepository.Add(student1);
             MyUnitOfWork.StudentRepository.Add(student2);
