@@ -19,6 +19,7 @@ namespace WebApplication.Controllers
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
         List<String> ownersName = new List<String>();
+        List<Room> rooms = new List<Room>();
 
         public IActionResult Professor()
         {
@@ -85,6 +86,16 @@ namespace WebApplication.Controllers
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
             }
+        }
+
+        private void SetRooms()
+        {
+            rooms = courses.GetAllRoomsByCourseId(course.Id);
+
+            foreach(Room room in rooms) {
+                this.rooms.Add(room);
+            }
+
         }
 
         public IActionResult Privacy()
