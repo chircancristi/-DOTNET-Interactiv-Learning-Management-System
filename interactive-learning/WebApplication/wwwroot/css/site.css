@@ -86,7 +86,7 @@ body {
 
 .user {
     width: 80%;
-    height: 70%;
+    height: 80%;
     margin-left: 1em;
 }
 
@@ -286,7 +286,7 @@ body {
 .modal-container {
     position: relative;
     padding: 1em;
-    background-color: #fefefe;
+    background-color: #F2F5FB;
     border: 1px solid #888;
     margin: auto;
     overflow: auto;
@@ -310,6 +310,8 @@ body {
     border: 1px solid black;
     margin-bottom: 1em;
     margin-right: 0.5em;
+    border-radius: 25px;
+    background-color:white;
 }
 .modal-container__input{
     margin-top:1em;

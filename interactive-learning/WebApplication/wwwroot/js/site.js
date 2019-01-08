@@ -6,7 +6,8 @@ const courses = document.getElementsByClassName("course");
 const rooms = document.getElementsByClassName("rooms");
 const replys = document.getElementsByClassName("questions-answer__trigger");
 const modal = document.getElementById("modalJS");
-const replyContentJS = document.getElementById("replyContentJS");
+
+const modalContainer = document.getElementById("containerJS");
 var http = new XMLHttpRequest();
  
 
@@ -27,18 +28,23 @@ for (let i = 0; i < replys.length; i++) {
         $.post('/ProfessorAnswers', params).done(function (response)
         {
             console.log(response);
+            
             modal.style.display = "block";
             let content = response;
 
-           
-
+            modalContainer.innerHTML = " "
+            modalContainer.innerHTML = "<div id='replyContentJS' class='modal-container__replyes'> </div >"
+            const replyContentJS = document.getElementById("replyContentJS");
             let body = " ";
-           
-          
+            replyContentJS.innerHTML = "";
             for (let i = 0; i < content.numberOfAnswers; i++)
                 body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
             console.log(body);
+
             replyContentJS.innerHTML = body;
+            body = " <form action='Professor/ProfessorAnswer?QuestionId=" + content.questionId + "' method='post' class='modal-container__input'> <input class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' type='submit' value='Submit'></div></form>"
+
+            modalContainer.innerHTML = modalContainer.innerHTML + body;
 
         })
         
