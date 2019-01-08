@@ -22,5 +22,17 @@ namespace Models
         {
             return _unitOfWork.ProfesorRepository.GetProfesorById(guid);
         }
+
+        public void AddStudent(Student student)
+        {
+            _unitOfWork.StudentRepository.Add(student);
+            _unitOfWork.Commit();
+        }
+
+        public void AddProfesor(Profesor profesor)
+        {
+            _unitOfWork.ProfesorRepository.Add(profesor);
+            _unitOfWork.Commit();
+        }
     }
 }
