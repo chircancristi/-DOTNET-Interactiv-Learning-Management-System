@@ -57,7 +57,16 @@ namespace WebApplication.Controllers
             @ViewBag.answers = true;
             return View();
         }
- 
+
+        [HttpPost]
+        public IActionResult AddRoom()
+        {
+            Room room = new Room(course.Id, profesor.Id);
+            courses.AddRoom(room);
+
+            return View();
+        }
+
         private void GenerateProfessor()
         {
             
@@ -91,9 +100,8 @@ namespace WebApplication.Controllers
 
         private void SetRooms()
         {
-           
             foreach(Room room in courses.GetAllRoomsByCourseId(course.Id)) {
-                this.rooms.Add(room);
+                rooms.Add(room);
             }
 
         }
