@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <div class="container-flex">
     <section id="modalJS" class="modal-replyes">
         <div class="modal-container">
@@ -27,7 +28,7 @@
             <div class="modal-container__input">
                 <input class="chat-form__input chat-form__input--modal" type="text" name="question"><br>
                 <div class="buttons__container buttons__container--modal">
-                      <input class="chat-form__button" type="submit" value="Submit">
+                    <input class="chat-form__button" type="submit" value="Submit">
                 </div>
             </div>
         </div>
@@ -37,13 +38,13 @@
         <div class="users__flex">
             @for (int i = 0; i < @ViewBag.students.Count; i++)
             {
-            <div class="user">
-                <h2 class="user__name">@ViewBag.students[i].LastName @ViewBag.students[i].FirstName</h2>
-                <div class="users__status-container">
-                    <i class="fas fa-minus-circle"></i>
-                    <span class="dot"></span>
+                <div class="user">
+                    <h2 class="user__name">@ViewBag.students[i].LastName @ViewBag.students[i].FirstName</h2>
+                    <div class="users__status-container">
+                        <i class="fas fa-minus-circle"></i>
+                        <span class="dot"></span>
+                    </div>
                 </div>
-            </div>
             }
 
         </div>
@@ -61,14 +62,14 @@
 
         </div>
         <div class="questions__chat-container">
-            <form  method="POST"  class="questions__chat-form" >
-                <input  for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor"><br>
+            <form method="POST" class="questions__chat-form">
+                <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor"><br>
                 <div class="buttons__container">
                     <button id="closeRoomJS" class="close-room">Close Room</button>
                     <input id="questionProfessor" class="chat-form__button" type="submit" value="Submit">
                 </div>
             </form>
-           
+
         </div>
     </section>
     <section class="courses">
@@ -79,16 +80,18 @@
                 <i id="MLarrow" class="fas fa-arrow-up"></i>
             </div>
             <div class="rooms-flex" id="roomML">
-                @int roomNo = 1;
-                @foreach(Room room in @ViewBag.rooms)
-                {
-                    <div class="room">
-                    <span>Room @roomNo</span>
-                    <button class="rooms" id = room.Id>Join room</button>
-                    </div>
+                @{
+                    
+                    for ( int roomNo=0;roomNo<@ViewBag.rooms.Count;roomNo++)
+                    {
+                        <div class="room">
+                            <span>Room @roomNo+1</span>
+                            <button class="rooms" id=@ViewBag.rooms[roomNo].Id>Join room</button>
+                        </div>
+                        
+                    }
                 }
-                roomNo++;
-                
+
                 <div class="add-room__container"> <button class="add-room__button">Add room</button> </div>
             </div>
         </div>

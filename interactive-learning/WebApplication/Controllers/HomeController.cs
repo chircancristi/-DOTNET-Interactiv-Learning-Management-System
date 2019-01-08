@@ -42,11 +42,12 @@ namespace WebApplication.Controllers
         {
             
             SetStudents();
-
+            SetRooms();
             @ViewBag.students = students;
             @ViewBag.questions = questions;
             @ViewBag.owners = ownersName;
-            ViewBag.answer = false;
+            @ViewBag.answer = false;
+            @ViewBag.rooms = rooms;
         }
         /*
         [HttpPost]
