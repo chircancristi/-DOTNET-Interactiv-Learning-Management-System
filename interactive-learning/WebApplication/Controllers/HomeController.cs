@@ -14,7 +14,7 @@ namespace WebApplication.Controllers
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("E0C3AC4D-6B9C-42F4-917C-FB307C6A652E");
+        Guid id = Guid.Parse("A8523E29-F792-4640-8351-82949B522A90");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
@@ -22,28 +22,40 @@ namespace WebApplication.Controllers
 
         public IActionResult Professor()
         {
-            
             this.GenerateProfessor();
-            SetStudents();
-           
-            @ViewBag.students = students;
-            @ViewBag.questions = questions;
-            @ViewBag.owners = ownersName;
+            SetData();
             return View();
         }
         [HttpPost]
         public IActionResult Professor(string questionProfessor)
         {
+            
             this.GenerateProfessor();
             Question question = new Question(this.id, this.course.GeneralRoomId, "professor", questionProfessor);
-            
             interaction.AddQuestion(question);
-            SetStudents();
-            @ViewBag.students = this.students;
-            @ViewBag.questions = this.questions;
-            @ViewBag.owners = this.ownersName;
+            SetData();
+
             return View();
         }
+        private void SetData()
+        {
+            
+            SetStudents();
+
+            @ViewBag.students = students;
+            @ViewBag.questions = questions;
+            @ViewBag.owners = ownersName;
+            ViewBag.answer = false;
+        }
+        /*
+        [HttpPost]
+        public IActionResult Professor(Guid id)
+        {
+            SetData();
+            @ViewBag.answers = true;
+            return View();
+        }*/
+ 
         private void GenerateProfessor()
         {
             

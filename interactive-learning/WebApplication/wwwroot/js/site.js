@@ -6,6 +6,7 @@ const courses = document.getElementsByClassName("course");
 const rooms = document.getElementsByClassName("rooms");
 const replys = document.getElementsByClassName("questions-answer__trigger");
 const modal = document.getElementById("modalJS");
+
 for (let i = 0; i < courses.length; i++) {
     courses[i].addEventListener("click", function () {
         showRooms(courses[i]);
@@ -15,6 +16,8 @@ for (let i = 0; i < courses.length; i++) {
 for (let i = 0; i < replys.length; i++) {
     replys[i].addEventListener("click", function () {
         modal.style.display = "block";
+        let id = replys[i].id;
+        $.post("/professor", { id: id });
     })
 }
 window.onclick = function (event) {
