@@ -81,14 +81,14 @@
             </div>
             <div class="rooms-flex" id="roomML">
                 @{
-                    
-                    for ( int roomNo=0;roomNo<@ViewBag.rooms.Count;roomNo++)
+
+                    for (int roomNo = 0; roomNo < @ViewBag.rooms.Count; roomNo++)
                     {
                         <div class="room">
-                            <span>Room @roomNo+1</span>
+                            <span>Room @(roomNo + 1)</span>
                             <button class="rooms" id=@ViewBag.rooms[roomNo].Id>Join room</button>
                         </div>
-                        
+
                     }
                 }
 

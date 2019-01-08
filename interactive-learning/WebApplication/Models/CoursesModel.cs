@@ -49,7 +49,7 @@ namespace Models
 
         public List<Room> GetAllRoomsByCourseId(Guid courseId)
         {
-            return GetAllRoomsByCourseId(courseId);
+            return _unitOfWork.RoomRepository.GetRoomsByCourseId(courseId);
         }
 
         public void AddRoom(Room room)

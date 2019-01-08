@@ -17,7 +17,7 @@ for (let i = 0; i < replys.length; i++) {
     replys[i].addEventListener("click", function () {
         modal.style.display = "block";
         let id = replys[i].id;
-        $.post("/professor", { id: id });
+        $.post("/professorAnswers", { id: id });
     })
 }
 window.onclick = function (event) {
