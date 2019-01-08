@@ -46,5 +46,22 @@ namespace Models
             }
             return result;
         }
+
+        public List<Room> GetAllRoomsByCourseId(Guid courseId)
+        {
+            return GetAllRoomsByCourseId(courseId);
+        }
+
+        public void AddRoom(Room room)
+        {
+            _unitOfWork.RoomRepository.Add(room);
+            _unitOfWork.Commit();
+        }
+
+        public void AddCourse(Course course)
+        {
+            _unitOfWork.CourseRepository.Add(course);
+            _unitOfWork.Commit();
+        }
     }
 }

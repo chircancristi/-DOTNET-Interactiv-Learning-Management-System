@@ -29,6 +29,11 @@ namespace BusinessLayer
             _dbSet.Add(entity);
         }
 
+        public void Update(T entity)
+        {
+            _dbSet.Update(entity);
+        }
+
         public Question GetQuestionById(Guid Id)
         {
             var question = Entities.First(a => a.Id == Id);
