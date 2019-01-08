@@ -17,7 +17,14 @@ for (let i = 0; i < replys.length; i++) {
     replys[i].addEventListener("click", function () {
         modal.style.display = "block";
         let id = replys[i].id;
-        $.post("/professorAnswers", { id: id });
+        var http = new XMLHttpRequest();
+        var url = '/Home/ProfessorAnswers';
+        var params = 'orem='+id;
+        http.open('POST', url, true);
+
+        //Send the proper header information along with the request
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.send(params);
     })
 }
 window.onclick = function (event) {

@@ -51,7 +51,7 @@ namespace WebApplication.Controllers
         }
         
         [HttpPost]
-        public IActionResult professorAnswers(Guid id)
+        public IActionResult ProfessorAnswers(Guid id)
         {
             SetData();
             @ViewBag.answers = true;
