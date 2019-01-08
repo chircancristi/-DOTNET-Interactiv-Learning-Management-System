@@ -39,6 +39,11 @@ namespace WebApplication.Controllers
 
             return View();
         }
+        /*
+        [HttpPost]
+        public ActionResult ProfessorAnswer()
+        {
+        }*/
         [HttpPost]
         public ActionResult ProfessorAnswers(Guid id)
         {
@@ -66,17 +71,22 @@ namespace WebApplication.Controllers
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
             }
-         
-           
-            return Json(new 
-            { 
-                Authors = ownersName, 
+
+
+            return Json(new
+            {
+                Authors = ownersName,
                 Answers = answerContent,
-                NumberOfAnswers = ownersName.Count
+                NumberOfAnswers = ownersName.Count,
+                QuestionId = id
             }); 
         }
 
-
+        [HttpPost]
+         public ActionResult ProfessorAnswer(Guid QuestionId,String answerProfessor)
+        {
+            return Redirect("/Professor");
+        }
 
         private void SetData()
         {

@@ -5,16 +5,8 @@
 
 <div class="container-flex">
     <section id="modalJS" class="modal-replyes">
-        <div class="modal-container">
-            <div id="replyContentJS" class="modal-container__replyes">
-
-            </div>
-            <div class="modal-container__input">
-                <input class="chat-form__input chat-form__input--modal" type="text" name="question"><br>
-                <div class="buttons__container buttons__container--modal">
-                    <input class="chat-form__button" type="submit" value="Submit">
-                </div>
-            </div>
+        <div class="modal-container" id="containerJS">
+           
         </div>
     </section>
     <section class="users">
@@ -35,7 +27,7 @@
     </section>
     <section class="questions">
         <div class="questions__content" id="questions">
-           
+
             @for (int i = 0; i < @ViewBag.questions.Count; i++)
             {
                 <div class="question">
@@ -48,7 +40,7 @@
         </div>
         <div class="questions__chat-container">
             <form method="POST" class="questions__chat-form">
-                <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor"><br>
+                <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor">
                 <div class="buttons__container">
                     <button id="closeRoomJS" class="close-room">Close Room</button>
                     <input id="questionProfessor" class="chat-form__button" type="submit" value="Submit">
@@ -78,7 +70,7 @@
                 }
 
                 <div class="add-room__container">
-                    <input type="submit" name="AddRoom" value="Add room" class="add-room__button"/>
+                    <input type="submit" name="AddRoom" value="Add room" class="add-room__button" />
                     <!-- <button class="add-room__button">Add room</button> -->
                 </div>
             </div>
