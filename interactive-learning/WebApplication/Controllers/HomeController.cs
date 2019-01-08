@@ -19,30 +19,36 @@ namespace WebApplication.Controllers
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
         List<String> ownersName = new List<String>();
+        List<Room> rooms = new List<Room>();
 
         public IActionResult Professor()
         {
-            
-            this.GenerateProfessor();
-            SetStudents();
-           
-            @ViewBag.students = students;
-            @ViewBag.questions = questions;
-            @ViewBag.owners = ownersName;
+            SetData();  
             return View();
         }
+
+
+
         [HttpPost]
         public IActionResult Professor(string questionProfessor)
         {
-            this.GenerateProfessor();
+            SetData();
             Question question = new Question(this.id, this.course.GeneralRoomId, "professor", questionProfessor);
             
             interaction.AddQuestion(question);
-            SetStudents();
-            @ViewBag.students = this.students;
-            @ViewBag.questions = this.questions;
-            @ViewBag.owners = this.ownersName;
+
             return View();
+        }
+        private void SetData()
+        {
+            this.GenerateProfessor();
+            SetStudents();
+            SetRooms();
+
+            @ViewBag.students = students;
+            @ViewBag.questions = questions;
+            @ViewBag.owners = ownersName;
+            @ViewBag.rooms = rooms;
         }
         private void GenerateProfessor()
         {
@@ -73,6 +79,16 @@ namespace WebApplication.Controllers
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
             }
+        }
+
+        private void SetRooms()
+        {
+            rooms = courses.GetAllRoomsByCourseId(course.Id);
+
+            foreach(Room room in rooms) {
+                this.rooms.Add(room);
+            }
+
         }
 
         public IActionResult Privacy()
