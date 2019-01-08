@@ -48,5 +48,11 @@ namespace BusinessLayer
 
             return result;
         }
+
+        public List<Question> GetAllQuestions()
+        {
+            return _context.Questions
+                .ToList();
+        }
     }
 }

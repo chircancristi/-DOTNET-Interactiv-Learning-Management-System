@@ -43,5 +43,11 @@ namespace BusinessLayer
 
             return result;
         }
+
+        public List<Room> GetAllRooms()
+        {
+            return _context.Rooms
+                .ToList();
+        }
     }
 }

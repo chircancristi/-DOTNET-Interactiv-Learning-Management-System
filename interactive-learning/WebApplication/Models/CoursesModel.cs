@@ -63,5 +63,15 @@ namespace Models
             _unitOfWork.CourseRepository.Add(course);
             _unitOfWork.Commit();
         }
+
+        public List<Course> GetAllCourses()
+        {
+            return _unitOfWork.CourseRepository.GetAllCourses();
+        }
+
+        public List<Room> GetAllRooms()
+        {
+            return _unitOfWork.RoomRepository.GetAllRooms();
+        }
     }
 }

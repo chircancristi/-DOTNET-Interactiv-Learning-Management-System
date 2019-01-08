@@ -1,6 +1,7 @@
 ﻿using System;
 using DataLayer;
 using BusinessLayer;
+using System.Collections.Generic;
 
 namespace Models
 {
@@ -33,6 +34,16 @@ namespace Models
         {
             _unitOfWork.ProfesorRepository.Add(profesor);
             _unitOfWork.Commit();
+        }
+
+        public List<Profesor> GetAllProfessors()
+        {
+            return _unitOfWork.ProfesorRepository.GetAllProfessors();
+        }
+
+        public List<Student> GetAllStudents()
+        {
+            return _unitOfWork.StudentRepository.GetAllStudents();
         }
     }
 }

@@ -61,5 +61,15 @@ namespace Models
             _unitOfWork.QuestionRepository.Update(question);
             _unitOfWork.Commit();
         }
+
+        public List<Answer> GetAllAnswers()
+        {
+            return _unitOfWork.AnswerRepository.GetAllAnswers();
+        }
+
+        public List<Question> GetAllQuestions()
+        {
+            return _unitOfWork.QuestionRepository.GetAllQuestions();
+        }
     }
 }

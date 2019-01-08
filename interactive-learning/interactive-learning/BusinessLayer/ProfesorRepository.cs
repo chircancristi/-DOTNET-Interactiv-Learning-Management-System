@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DataLayer;
+using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -32,6 +33,12 @@ namespace BusinessLayer
         {
             var profesor = Entities.First(a => a.Id == Id);
             return profesor;
+        }
+
+        public List<Profesor> GetAllProfessors()
+        {
+            return _context.Profesors
+                .ToList();
         }
     }
 }

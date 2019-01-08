@@ -34,6 +34,11 @@ namespace BusinessLayer
             var student = Entities.First(a => a.Id == Id);
             return student;
         }
+
+        public List<Student> GetAllStudents()
+        {
+            return _context.Students
+                .ToList();
+        }
     }
 }
-// select * from studenti 

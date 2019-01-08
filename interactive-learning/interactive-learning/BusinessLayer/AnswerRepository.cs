@@ -46,5 +46,11 @@ namespace BusinessLayer
                .Where(a => a.QuestionId == questionId)
                .ToList();
         }
+
+        public List<Answer> GetAllAnswers()
+        {
+            return _context.Answers
+                .ToList();
+        }
     }
 }
