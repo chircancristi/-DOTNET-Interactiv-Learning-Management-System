@@ -39,6 +39,7 @@ namespace Models
             var answer = _unitOfWork.AnswerRepository.GetAnswerById(answerId);
             answer.MarkAsFavourite();
             _unitOfWork.AnswerRepository.Update(answer);
+            _unitOfWork.Commit();
         }
 
         public void AddQuestion(Question question)
@@ -50,6 +51,14 @@ namespace Models
         public void AddAnswer(Answer answer)
         {
             _unitOfWork.AnswerRepository.Add(answer);
+            _unitOfWork.Commit();
+        }
+
+        public void SetQuestionTime(Guid questionId, int minutes)
+        {
+            var question = _unitOfWork.QuestionRepository.GetQuestionById(questionId);
+            question.SetTimeToAnswer(minutes);
+            _unitOfWork.QuestionRepository.Update(question);
             _unitOfWork.Commit();
         }
     }
