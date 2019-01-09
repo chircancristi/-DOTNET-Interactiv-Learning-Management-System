@@ -65,21 +65,21 @@ namespace WebApplication
             app.UseMvc(routes =>
             {
                 routes.MapRoute("profesor", "professor",
-                defaults: new { controller = "Home", action = "professor" });
+                defaults: new { controller = "Professor", action = "professor" });
                 routes.MapRoute("profesor", "ProfessorAnswers",
-                defaults: new { controller = "Home", action = "ProfessorAnswers" });
+                defaults: new { controller = "Professor", action = "ProfessorAnswers" });
                 routes.MapRoute("Student", "student",
                     defaults: new { controller = "Student", action = "Student" });
                 routes.MapRoute("profesor", "AddRoom",
-                     defaults: new { controller = "Home", action = "AddRoom" });
+                     defaults: new { controller = "Professor", action = "AddRoom" });
                 routes.MapRoute("profesor", "JoinRoom",
-                     defaults: new { controller = "Home", action = "JoinRoom" });
+                     defaults: new { controller = "Professor", action = "JoinRoom" });
                 routes.MapRoute("profesor", "CloseRoom",
-                     defaults: new { controller = "Home", action = "CloseRoom" });
+                     defaults: new { controller = "Professor", action = "CloseRoom" });
                 routes.MapRoute("profesor", "AddQuestion",
-                     defaults: new { controller = "Home", action = "AddQuestion" });
+                     defaults: new { controller = "Professor", action = "AddQuestion" });
                 routes.MapRoute("profesor", "AddAnswer",
-                     defaults: new { controller = "Home", action = "AddAnswer" });
+                     defaults: new { controller = "Professor", action = "AddAnswer" });
 
 
             });

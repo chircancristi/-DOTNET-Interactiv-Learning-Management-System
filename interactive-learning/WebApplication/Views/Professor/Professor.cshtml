@@ -39,11 +39,11 @@
 
         </div>
         <div class="questions__chat-container">
-            <form id="postQuestion" method="POST" class="questions__chat-form">
-                <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor">
+            <form action="/AddQuestion" method="post" id="postQuestion" class="questions__chat-form">
+                <input  class="chat-form__input" id="question" type="text" >
                 <div class="buttons__container">
                     <button id="closeRoomJS" class="close-room">Close Room</button>
-                    <input id="questionProfessor" class="chat-form__button" type="submit" value="Submit">
+                    <input id="questionProfessor" onclick="return SendQuestion()" class="chat-form__button" type="submit" value="Submit">
                 </div>
             </form>
 

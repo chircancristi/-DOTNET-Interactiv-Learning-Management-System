@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Controllers
 {
-    public class HomeController : Controller
+    public class ProfessorController : Controller
     {
         InteractionModel interaction = new InteractionModel();
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("713147B5-5094-4843-AD78-A5FC6DC504D0");
+        Guid id = Guid.Parse("39C92F2E-9001-412A-B688-688C3DF24CF9");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
@@ -34,12 +34,12 @@ namespace WebApplication.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddQuestion(string questionProfessor)
+        public IActionResult AddQuestion(string question)
         {
             String author;
             this.GenerateProfessor();
-            Question question = new Question(this.id, Guid.Parse(HttpContext.Session.GetString("roomId")), "professor", questionProfessor);
-            interaction.AddQuestion(question);
+            Question newQuestion = new Question(this.id, Guid.Parse(HttpContext.Session.GetString("roomId")), "professor", question);
+            interaction.AddQuestion(newQuestion);
             SetData();
             SetQuestions(Guid.Parse(HttpContext.Session.GetString("roomId")));
             author = profesor.LastName + " " + profesor.FirstName;
@@ -47,27 +47,27 @@ namespace WebApplication.Controllers
             {
                 type = "question",
                 questionAuthor = author,
-                questionContent = questionProfessor,
+                questionContent = question,
                 questionId = questions[questions.Count - 1].Id
 
             });
         }
         [HttpPost]
-        public IActionResult AddAnswer(string answerProfessor)
+        public IActionResult AddAnswer(string answer)
         {
             String author;
             this.GenerateProfessor();
                 
-            Answer answer = new Answer(this.id, Guid.Parse(HttpContext.Session.GetString("questionId")), answerProfessor, "professor");
-            interaction.AddAnswer(answer);
+            Answer newAnswer = new Answer(this.id, Guid.Parse(HttpContext.Session.GetString("questionId")), answer, "professor");
+            interaction.AddAnswer(newAnswer);
             SetData();
               
             author = profesor.LastName + " " + profesor.FirstName;
             return Json(new
             {
                 type = "answer",
-                questionAuthor = author,
-                questionContent = answerProfessor,
+                answerAuthor = author,
+                answerContent = answer,
             });
         }
         
