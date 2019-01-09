@@ -4,6 +4,8 @@ using System.Diagnostics;
 using DataLayer;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using System.Web;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Controllers
 {
@@ -22,6 +24,7 @@ namespace WebApplication.Controllers
         List<Room> rooms = new List<Room>();
         List<Answer> Answers = new List<Answer>();
 
+
         public IActionResult Professor()
         {
             this.GenerateProfessor();
@@ -29,13 +32,24 @@ namespace WebApplication.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Professor(string questionProfessor)
+        public IActionResult Professor(string questionProfessor,string answerProfessor)
         {
-            
-            this.GenerateProfessor();
-            Question question = new Question(this.id, this.course.GeneralRoomId, "professor", questionProfessor);
-            interaction.AddQuestion(question);
-            SetData();
+            if (!String.IsNullOrWhiteSpace(questionProfessor))
+            {
+                this.GenerateProfessor();
+                Question question = new Question(this.id, this.course.GeneralRoomId, "professor", questionProfessor);
+                interaction.AddQuestion(question);
+                SetData();
+                
+            }
+            if (!String.IsNullOrWhiteSpace(answerProfessor))
+            {
+                this.GenerateProfessor();
+                Guid roomId = Guid.Parse(HttpContext.Session.GetString("questionId"));
+                Answer answer = new Answer(this.id, roomId, answerProfessor, "professor");
+                interaction.AddAnswer(answer);
+                SetData();
+            }
 
             return View();
         }
@@ -71,6 +85,9 @@ namespace WebApplication.Controllers
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
             }
+            String idQuestion = id.ToString();
+            HttpContext.Session.SetString( "questionId", idQuestion);
+            
 
 
             return Json(new
@@ -81,12 +98,8 @@ namespace WebApplication.Controllers
                 QuestionId = id
             }); 
         }
-
-        [HttpPost]
-         public ActionResult ProfessorAnswer(Guid QuestionId,String answerProfessor)
-        {
-            return Redirect("/Professor");
-        }
+       
+        
 
         private void SetData()
         {

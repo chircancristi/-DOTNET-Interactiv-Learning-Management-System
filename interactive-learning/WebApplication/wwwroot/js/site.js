@@ -42,7 +42,7 @@ for (let i = 0; i < replys.length; i++) {
             console.log(body);
 
             replyContentJS.innerHTML = body;
-            body = " <form action='Professor/ProfessorAnswer?QuestionId=" + content.questionId + "' method='post' class='modal-container__input'> <input class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' type='submit' value='Submit'></div></form>"
+            body = " <form  method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' type='submit' value='Submit'></div></form>"
 
             modalContainer.innerHTML = modalContainer.innerHTML + body;
 
