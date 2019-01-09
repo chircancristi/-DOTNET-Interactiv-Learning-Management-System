@@ -25,7 +25,7 @@ namespace WebApplication.Controllers
         public IActionResult Student()
         {
             //this.GenerateStudent();
-            //SetData();
+            SetData();
             return View();
         }
 
@@ -35,12 +35,14 @@ namespace WebApplication.Controllers
                 coursesNames.Add(course.Name);
             @ViewBag.courses = coursesNames;
 
-            SetRooms();
+            //SetRooms(); <------------
+            //SetQuestions();
+            @ViewBag.questions = questions;
+            @ViewBag.owners = ownersName;
 
 
 
         }
-
             private void GenerateStudent()
         {
             student = people.GetStudent(this.id);
@@ -53,6 +55,7 @@ namespace WebApplication.Controllers
             foreach (Room room in courses.GetAllRoomsByCourseId(course.Id))
             {
                 rooms.Add(room);
+                
             }
 
         }
