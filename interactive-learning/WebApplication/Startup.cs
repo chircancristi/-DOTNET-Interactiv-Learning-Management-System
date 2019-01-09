@@ -70,8 +70,18 @@ namespace WebApplication
                 defaults: new { controller = "Home", action = "ProfessorAnswers" });
                 routes.MapRoute("Student", "student",
                     defaults: new { controller = "Student", action = "Student" });
-               
-            
+                routes.MapRoute("profesor", "AddRoom",
+                     defaults: new { controller = "Home", action = "AddRoom" });
+                routes.MapRoute("profesor", "JoinRoom",
+                     defaults: new { controller = "Home", action = "JoinRoom" });
+                routes.MapRoute("profesor", "CloseRoom",
+                     defaults: new { controller = "Home", action = "CloseRoom" });
+                routes.MapRoute("profesor", "AddQuestion",
+                     defaults: new { controller = "Home", action = "AddQuestion" });
+                routes.MapRoute("profesor", "AddAnswer",
+                     defaults: new { controller = "Home", action = "AddAnswer" });
+
+
             });
         }
     }

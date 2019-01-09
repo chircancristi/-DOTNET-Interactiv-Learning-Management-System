@@ -23,9 +23,9 @@ namespace Executable
 
             var room = new Room(course.Id, profesor.Id);
             var room2 = new Room(course.Id, profesor.Id);
-
+            
             course.SetGeneralRoomId(room);
-            course2.SetGeneralRoomId(room2);
+         
 
             var question1 = new Question(student1.Id, room.Id, "student", "Se da cursul asta in sesiune?");
 

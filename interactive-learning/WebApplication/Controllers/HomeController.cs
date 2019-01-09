@@ -15,7 +15,7 @@ namespace WebApplication.Controllers
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("0B465518-E368-4C9E-86E6-F4F5AD11CB0E");
+        Guid id = Guid.Parse("713147B5-5094-4843-AD78-A5FC6DC504D0");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
@@ -29,35 +29,100 @@ namespace WebApplication.Controllers
         {
             this.GenerateProfessor();
             SetData();
+            SetQuestions(course.GeneralRoomId);
+            HttpContext.Session.SetString("roomId", course.GeneralRoomId.ToString());
             return View();
         }
         [HttpPost]
-        public IActionResult Professor(string questionProfessor,string answerProfessor)
+        public IActionResult AddQuestion(string questionProfessor)
         {
-            if (!String.IsNullOrWhiteSpace(questionProfessor))
+            String author;
+            this.GenerateProfessor();
+            Question question = new Question(this.id, Guid.Parse(HttpContext.Session.GetString("roomId")), "professor", questionProfessor);
+            interaction.AddQuestion(question);
+            SetData();
+            SetQuestions(Guid.Parse(HttpContext.Session.GetString("roomId")));
+            author = profesor.LastName + " " + profesor.FirstName;
+            return Json(new
             {
-                this.GenerateProfessor();
-                Question question = new Question(this.id, this.course.GeneralRoomId, "professor", questionProfessor);
-                interaction.AddQuestion(question);
-                SetData();
-                
-            }
-            if (!String.IsNullOrWhiteSpace(answerProfessor))
-            {
-                this.GenerateProfessor();
-                Guid roomId = Guid.Parse(HttpContext.Session.GetString("questionId"));
-                Answer answer = new Answer(this.id, roomId, answerProfessor, "professor");
-                interaction.AddAnswer(answer);
-                SetData();
-            }
+                type = "question",
+                questionAuthor = author,
+                questionContent = questionProfessor,
+                questionId = questions[questions.Count - 1].Id
 
-            return View();
+            });
         }
-        /*
         [HttpPost]
-        public ActionResult ProfessorAnswer()
+        public IActionResult AddAnswer(string answerProfessor)
         {
-        }*/
+            String author;
+            this.GenerateProfessor();
+                
+            Answer answer = new Answer(this.id, Guid.Parse(HttpContext.Session.GetString("questionId")), answerProfessor, "professor");
+            interaction.AddAnswer(answer);
+            SetData();
+              
+            author = profesor.LastName + " " + profesor.FirstName;
+            return Json(new
+            {
+                type = "answer",
+                questionAuthor = author,
+                questionContent = answerProfessor,
+            });
+        }
+        
+        [HttpPost]
+        public ActionResult CloseRoom()
+        {
+            this.GenerateProfessor();
+            SetData();
+            SetQuestions(course.GeneralRoomId);
+            HttpContext.Session.SetString("roomId", course.GeneralRoomId.ToString());
+
+            List<String> questionContent = new List<string>();
+            List<Guid> questionId = new List<Guid>();
+            for (int i = 0; i < questions.Count; i++)
+            {
+                questionContent.Add(questions[i].Content);
+                questionId.Add(questions[i].Id);
+            }
+            return Json(new
+            {
+                type = "null",
+                numberOfQuestion = questions.Count,
+                questionAuthor = this.ownersName,
+                questionContent = questionContent,
+                questionId = questionId
+
+            });
+
+        }
+        [HttpPost]
+        public ActionResult JoinRoom( Guid id)
+        {
+            this.GenerateProfessor();
+            SetData();
+            SetQuestions(id);
+            
+            HttpContext.Session.SetString("roomId", id.ToString());
+
+            List<String> questionContent = new List<string>();
+            List<Guid> questionId = new List<Guid>();
+            for (int i=0; i < questions.Count; i++)
+            {
+                questionContent.Add(questions[i].Content);
+                questionId.Add(questions[i].Id);
+            }
+            return Json(new
+            {
+                type="null",
+                numberOfQuestion = questions.Count,
+                questionAuthor = this.ownersName,
+                questionContent = questionContent,
+                questionId = questionId
+
+            });
+        }
         [HttpPost]
         public ActionResult ProfessorAnswers(Guid id)
         {
@@ -88,10 +153,9 @@ namespace WebApplication.Controllers
             String idQuestion = id.ToString();
             HttpContext.Session.SetString( "questionId", idQuestion);
             
-
-
             return Json(new
             {
+                type= "null",
                 Authors = ownersName,
                 Answers = answerContent,
                 NumberOfAnswers = ownersName.Count,
@@ -107,19 +171,24 @@ namespace WebApplication.Controllers
             SetStudents();
             SetRooms();
             @ViewBag.students = students;
-            @ViewBag.questions = questions;
-            @ViewBag.owners = ownersName;
-            @ViewBag.answer = false;
             @ViewBag.rooms = rooms;
+            @ViewBag.course = this.course; 
         }
         
         [HttpPost]
         public ActionResult AddRoom()
         {
+            this.GenerateProfessor();
+            
             Room room = new Room(course.Id, profesor.Id);
             courses.AddRoom(room);
-
-            return View();
+            SetData();
+             
+            return Json(new {
+                type="null",
+                number=rooms.Count,
+                id= rooms[rooms.Count-1]
+            });
         }
 
         private void GenerateProfessor()
@@ -131,10 +200,15 @@ namespace WebApplication.Controllers
         }
         public void SetStudents()
         {
-            String firstName, lastName, fullName;
+            
             students = courses.GetStudentsByCourse(this.course.Id);
-            questions = interaction.GetQuestionsByRoomId(this.course.GeneralRoomId);
-        
+            
+        }
+        public void SetQuestions(Guid id)
+        {
+            String firstName, lastName, fullName;
+            questions = interaction.GetQuestionsByRoomId(id);
+
             for (int i = 0; i < questions.Count; i++)
             {
 
@@ -151,12 +225,14 @@ namespace WebApplication.Controllers
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
             }
+            @ViewBag.questions = questions;
+            @ViewBag.owners = ownersName;
         }
 
         private void SetRooms()
         {
             foreach(Room room in courses.GetAllRoomsByCourseId(course.Id)) {
-                rooms.Add(room);
+                if (room.Id!=course.GeneralRoomId) rooms.Add(room);
             }
 
         }
