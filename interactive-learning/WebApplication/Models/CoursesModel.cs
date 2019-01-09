@@ -64,6 +64,7 @@ namespace Models
             _unitOfWork.Commit();
         }
 
+
         public List<Course> GetAllCourses()
         {
             return _unitOfWork.CourseRepository.GetAllCourses();

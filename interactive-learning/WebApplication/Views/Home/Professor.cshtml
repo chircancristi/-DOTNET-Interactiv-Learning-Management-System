@@ -39,7 +39,7 @@
 
         </div>
         <div class="questions__chat-container">
-            <form method="POST" class="questions__chat-form">
+            <form asp-action="AddQuestion" method="POST" class="questions__chat-form">
                 <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor">
                 <div class="buttons__container">
                     <button id="closeRoomJS" class="close-room">Close Room</button>
@@ -52,26 +52,28 @@
     <section class="courses">
         <h2 class="courses__title">Courses</h2>
         <div class="courses__flex">
-            <div class="course" id="ML">
-                <span class="course__title">Machine learning</span>
-                <i id="MLarrow" class="fas fa-arrow-up"></i>
+            <div class="course" id="@ViewBag.course.Id">
+                <span class="course__title">@ViewBag.course.Name</span>
+                <i id="@ViewBag.course.Id arrow" class="fas fa-arrow-up"></i>
             </div>
-            <div class="rooms-flex" id="roomML">
-                @{
+            <div class="rooms-flex" id="room @ViewBag.course.Id">
+                <div id="roomsContainer">
+                    @{
 
-                    for (int roomNo = 0; roomNo < @ViewBag.rooms.Count; roomNo++)
-                    {
-                        <div class="room">
-                            <span>Room @(roomNo + 1)</span>
-                            <button class="rooms" id=@ViewBag.rooms[roomNo].Id>Join room</button>
-                        </div>
+                        for (int roomNo = 0; roomNo < @ViewBag.rooms.Count; roomNo++)
+                        {
+                            <div class="room">
+                                <span>Room @(roomNo + 1)</span>
+                                <button class="rooms" id=@ViewBag.rooms[roomNo].Id>Join room</button>
+                            </div>
 
+                        }
                     }
-                }
+                </div>
 
                 <div class="add-room__container">
-                    <input type="submit" name="AddRoom" value="Add room" class="add-room__button" />
-                    <!-- <button class="add-room__button">Add room</button> -->
+                    
+                    <button id="addRoomJS" class="add-room__button">Add room</button> 
                 </div>
             </div>
         </div>
