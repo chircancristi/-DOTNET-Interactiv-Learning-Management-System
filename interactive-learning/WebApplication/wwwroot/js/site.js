@@ -6,10 +6,7 @@ const courses = document.getElementsByClassName("course");
 const rooms = document.getElementsByClassName("rooms");
 const replys = document.getElementsByClassName("questions-answer__trigger");
 const modal = document.getElementById("modalJS");
-
-const modalContainer = document.getElementById("containerJS");
-var http = new XMLHttpRequest();
- 
+const modal_roomcode = document.getElementById("modalRoomcode")
 
 for (let i = 0; i < courses.length; i++) {
     courses[i].addEventListener("click", function () {
@@ -19,57 +16,31 @@ for (let i = 0; i < courses.length; i++) {
 
 for (let i = 0; i < replys.length; i++) {
     replys[i].addEventListener("click", function () {
-       
+        modal.style.display = "block";
         let id = replys[i].id;
-        
-        var url = 'ProfessorAnswers';
-        var params = 'id='+id;
-        
-        $.post('/ProfessorAnswers', params).done(function (response)
-        {
-            console.log(response);
-            
-            modal.style.display = "block";
-            let content = response;
-
-            modalContainer.innerHTML = " "
-            modalContainer.innerHTML = "<div id='replyContentJS' class='modal-container__replyes'> </div >"
-            const replyContentJS = document.getElementById("replyContentJS");
-            let body = " ";
-            replyContentJS.innerHTML = "";
-            for (let i = 0; i < content.numberOfAnswers; i++)
-                body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
-            console.log(body);
-
-            replyContentJS.innerHTML = body;
-            body = " <form  method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' type='submit' value='Submit'></div></form>"
-
-            modalContainer.innerHTML = modalContainer.innerHTML + body;
-
-        })
-        
+        $.post("/professorAnswers", { id: id });
     })
 }
-
 window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target == modal || event.target == modal_roomcode) {
         modal.style.display = "none";
+        modal_roomcode.style.display = "none";
+
     }
 }
 for (let i = 0; i < rooms.length; i++) {
     rooms[i].addEventListener("click", function () {
-       
-        if (rooms[i].innerHTML === "Join room")
-        {
-            
+
+        if (rooms[i].innerHTML === "Join room") {
+
+            modal_roomcode.style.display = "block";
+
             for (let j = 0; j < rooms.length; j++)
                 rooms[j].innerHTML = "Join room";
             rooms[i].innerHTML = "Leave room";
-           
-            
+
         }
-        else
-        {
+        else {
             rooms[i].innerHTML = "Join room";
         }
     })
