@@ -39,7 +39,7 @@
 
         </div>
         <div class="questions__chat-container">
-            <form asp-action="AddQuestion" method="POST" class="questions__chat-form">
+            <form id="postQuestion" method="POST" class="questions__chat-form">
                 <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor">
                 <div class="buttons__container">
                     <button id="closeRoomJS" class="close-room">Close Room</button>
@@ -79,6 +79,6 @@
         </div>
     </section>
 </div>
-
+<link rel="stylesheet" href="~/css/site.css" />
 
 

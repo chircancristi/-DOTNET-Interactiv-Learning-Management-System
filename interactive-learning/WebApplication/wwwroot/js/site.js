@@ -51,7 +51,7 @@
                 console.log(body);
 
                 replyContentJS.innerHTML = body;
-                body = " <form asp-action='AddAnswer'method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' type='submit' value='Submit'></div></form>"
+                body = " <form id='postAnswer' method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' type='submit' value='Submit'></div></form>"
 
                 modalContainer.innerHTML = modalContainer.innerHTML + body;
 
