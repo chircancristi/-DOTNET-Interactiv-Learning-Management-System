@@ -69,21 +69,27 @@
     </section>
     <section class="courses">
         <h2 class="courses__title">Courses</h2>
-        <div class="courses__flex">
-            <div class="course" id="ML">
-                <span class="course__title">Machine learning</span>
-                <i id="MLarrow" class="fas fa-arrow-up"></i>
-            </div>
-            <div class="rooms-flex" id="roomML">
 
-                <div class="room">
-                    <span>Room Name</span>
-                    <button class="rooms">Join room</button>
-                </div>
+        @{
+            for (int courseNo = 0; courseNo < @ViewBag.courses.Count; courseNo++)
+            {
+                    <div class="courses__flex">
+                        <div class="course" id="courseID">
+                            <span class="course__title">@ViewBag.courses[courseNo]</span>
+                            <i id="arrow" class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="rooms-flex" id="roomID">
+
+                            <div class="room">
+                                <span>Room Name</span>
+                                <button class="rooms">Join room</button>
+                            </div>
 
 
-            </div>
-        </div>
+                        </div>
+                    </div>
+                }
+          }
     </section>
 </div>
 
