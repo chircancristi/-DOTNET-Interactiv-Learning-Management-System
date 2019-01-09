@@ -1,0 +1,320 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Sticky footer styles
+  -------------------------------------------------- */
+
+html {
+    font-size: 14px;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-family: "Courier New", Courier, monospace;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-top: 2em;
+    height: 90%;
+    overflow: hidden;
+}
+
+.container-flex {
+    padding: 1em;
+    display: flex;
+    height: 100%;
+}
+
+.courses {
+    width: 25%;
+}
+
+
+.courses {
+    text-align: center;
+    border: 2px black solid;
+    overflow: auto;
+    background-color: #F2F5FB;
+}
+
+
+.courses__title {
+    margin-bottom: 1em;
+}
+
+
+.courses__flex,
+.rooms-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.rooms-flex {
+    display: none;
+}
+
+.user {
+    width: 80%;
+    height: 70%;
+    margin-left: 1em;
+}
+
+.course {
+    width: 85%;
+    margin-left: 0.5em;
+}
+
+.user,
+.course {
+    padding: 1em;
+    margin-bottom: 1em;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+    color: #565656;
+}
+
+.user {
+    background-color: #D7CEC7;
+}
+
+.course {
+    background-color: #6CD6CE;
+}
+
+.room {
+    padding: 0.5em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px black solid;
+}
+
+.fa-minus-circle {
+    color: red;
+}
+
+.dot {
+    background-color: green;
+    border-radius: 50%;
+    height: 1em;
+    width: 1em;
+}
+
+.questions {
+    width: 90%;
+    background-color: #F2F5FB;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+    border-left: 2px black solid;
+}
+
+.questions__content {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    border-bottom: 2px solid black;
+}
+
+.question {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #DCC7AA;
+    text-align: center;
+    border-radius: 25px;
+}
+
+
+.questions__chat-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 2em;
+}
+
+.questions__chat-form {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 70%;
+    height: 100%;
+}
+
+.chat-form__input {
+    width: 100%;
+    height: 50%;
+}
+
+.buttons__container {
+    padding-top: 1em;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-form__button {
+    color: #1ECD97;
+    border: 2px solid #1ECD97;
+    width: 30%;
+    outline: none;
+    text-align: center;
+    border-radius: 40px;
+    background: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.rooms {
+    outline: none;
+    text-align: center;
+    background: #fff;
+    color: black;
+    border: 2px solid black;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.chat-form__button:hover {
+    color: white;
+    background: #1ECD97;
+}
+
+.rooms:hover {
+    background: grey;
+    color: white;
+}
+
+.modal-replyes,
+.modal-roomcode {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-container {
+    position: relative;
+    padding: 1em;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    margin: auto;
+    overflow: auto;
+    border-radius: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 60%;
+    overflow: hidden;
+}
+
+.modal-container__replyes {
+    height: 70%;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.answer {
+    border: 1px solid black;
+    margin-bottom: 1em;
+    margin-right: 0.5em;
+}
+
+.modal-container__input {
+    margin-top: 1em;
+    height: 30%;
+}
+
+.chat-form__input--modal {
+    border: 1px solid black;
+}
+
+.buttons__container--modal {
+    justify-content: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+
+.roomcode-popup-text {
+    text-align: center;
+}
+
+.modal-roomcode__inputcontainer {
+    position: relative;
+    padding: 1em;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    margin: auto;
+    border-radius: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-roomcode__input {
+    border: 1px solid black;
+    width: 70%;
+    text-align: center;
+    margin-bottom: 10%;
+}

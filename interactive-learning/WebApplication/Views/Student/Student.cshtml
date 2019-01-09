@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container-flex">
+
+    <section id="modalJS" class="modal-replyes">
+        <div class="modal-container">
+            <div class="modal-container__replyes">
+
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Va pup! </p>
+                </div>
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                </div>
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                </div>
+                <div class="answer">
+                    <h3 class="answer-author">Popescu George</h3>
+                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
+                </div>
+            </div>
+            <div class="modal-container__input">
+                <input class="chat-form__input chat-form__input--modal" type="text" name="question"><br>
+                <div class="buttons__container buttons__container--modal">
+                    <input class="chat-form__button" type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modalRoomcode" class="modal-roomcode">
+
+        <div class="modal-roomcode__inputcontainer">
+            <h3 class="roomcode-popup-text">Room code:</h3>
+            <input class="modal-roomcode__input" type="text" name="Code">
+            <input class="chat-form__button" type="submit" value="Submit">
+        </div>
+
+
+    </section>
+
+    <section class="questions">
+        <div class="questions__content" id="questions">
+
+            <div class="question">
+                <h3 class="question-author">OWNER</h3>
+                <p class="question-string"> INTREBARE </p>
+                <a class="questions-answer__trigger" href="#"> Vezi raspunsuri</a>
+            </div>
+
+
+        </div>
+        <div class="questions__chat-container">
+            <form method="POST" class="questions__chat-form">
+                <input for="questionProfessor" class="chat-form__input" type="text" name="questionProfessor"><br>
+                <div class="buttons__container">
+                    <input id="questionProfessor" class="chat-form__button" type="submit" value="Submit">
+                </div>
+            </form>
+
+        </div>
+    </section>
+    <section class="courses">
+        <h2 class="courses__title">Courses</h2>
+        <div class="courses__flex">
+            <div class="course" id="ML">
+                <span class="course__title">Machine learning</span>
+                <i id="MLarrow" class="fas fa-arrow-up"></i>
+            </div>
+            <div class="rooms-flex" id="roomML">
+
+                <div class="room">
+                    <span>Room Name</span>
+                    <button class="rooms">Join room</button>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</div>
+
