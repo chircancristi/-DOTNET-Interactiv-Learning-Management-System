@@ -19,7 +19,7 @@ namespace DataLayer
             RoomId = roomId;
             Type = type;
             Content = content;
-            Start = DateTime.Now.Date;
+            Start = DateTime.Now;
             Stop = DateTime.Now.Date.AddMinutes(5);
         }
 
