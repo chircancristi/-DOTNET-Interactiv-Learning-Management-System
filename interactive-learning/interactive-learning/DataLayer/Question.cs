@@ -20,7 +20,7 @@ namespace DataLayer
             Type = type;
             Content = content;
             Start = DateTime.Now;
-            Stop = DateTime.Now.Date.AddMinutes(5);
+            Stop = Start.AddMinutes(5);
         }
 
         public void SetTimeToAnswer(int minutes)
