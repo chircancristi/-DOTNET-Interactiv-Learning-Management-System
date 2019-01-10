@@ -51,19 +51,19 @@ addRoom.addEventListener("click", function () {
         }        
     })
 })
-
-closeRoom.addEventListener("click", function() {
+function closeRoomFunction() {
+    
     $.post('/CloseRoom').done(function (response) {
-        
+
         let roomContent = document.getElementById(response.Id).innerText;
         var partsArray = roomContent.split(' ');
-        
-        var roomSpan = document.getElementById(response.Id).parentNode.children;
-        
-        roomSpan[0].innerText(partsArray[0] + ' ' + partsArray[1]);        
-    })
-})
 
+        var roomSpan = document.getElementById(response.Id).parentNode.children;
+
+        roomSpan[0].innerText(partsArray[0] + ' ' + partsArray[1]);
+    })
+    return false;
+}
 
 function ShowReplies(question) {
     let id = question.id;

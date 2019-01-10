@@ -16,7 +16,7 @@ namespace WebApplication.Controllers
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("F3C3D2EB-297E-4E80-91AC-34259A937E3A");
+        Guid id = Guid.Parse("0E603DD9-54DA-4E23-BBEA-2AF4C249D450");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
