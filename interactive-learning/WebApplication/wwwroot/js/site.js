@@ -55,8 +55,12 @@ addRoom.addEventListener("click", function () {
 closeRoom.addEventListener("click", function() {
     $.post('/CloseRoom').done(function (response) {
         
-        document.getElementById(response.Id).innerText("Room " + responese.number)
+        let roomContent = document.getElementById(response.Id).innerText;
+        var partsArray = roomContent.split(' ');
         
+        var roomSpan = document.getElementById(response.Id).parentNode.children;
+        
+        roomSpan[0].innerText(partsArray[0] + ' ' + partsArray[1]);        
     })
 })
 

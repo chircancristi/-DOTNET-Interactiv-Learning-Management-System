@@ -124,6 +124,17 @@ namespace WebApplication.Controllers
 
             });
         }
+
+        [HttpPost]
+        public ActionResult CloseRoom(Guid id)
+        {
+            String roomId = HttpContext.Session.GetString("roomId");
+            return Json(new
+            {
+                Id = roomId
+            });
+        }
+
         [HttpPost]
         public ActionResult ProfessorAnswers(Guid id)
         {
