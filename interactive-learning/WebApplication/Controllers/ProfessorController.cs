@@ -16,7 +16,7 @@ namespace WebApplication.Controllers
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("0E603DD9-54DA-4E23-BBEA-2AF4C249D450");
+        Guid id = Guid.Parse("F3C3D2EB-297E-4E80-91AC-34259A937E3A");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
@@ -130,6 +130,7 @@ namespace WebApplication.Controllers
         public ActionResult CloseRoom(Guid id)
         {
             String roomId = HttpContext.Session.GetString("roomId");
+           
             return Json(new
             {
                 Id = roomId

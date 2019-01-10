@@ -55,12 +55,12 @@ function closeRoomFunction() {
     
     $.post('/CloseRoom').done(function (response) {
 
-        let roomContent = document.getElementById(response.Id).innerText;
-        var partsArray = roomContent.split(' ');
+        let roomContent = document.getElementById(response.id).innerText;
+        
 
-        var roomSpan = document.getElementById(response.Id).parentNode.children;
-
-        roomSpan[0].innerText(partsArray[0] + ' ' + partsArray[1]);
+        var roomSpan = document.getElementById(response.id).parentNode.children;
+        var partsArray = roomSpan[0].innerText.split(' ');
+        roomSpan[0].innerText=partsArray[0] + ' ' + partsArray[1];
     })
     return false;
 }
