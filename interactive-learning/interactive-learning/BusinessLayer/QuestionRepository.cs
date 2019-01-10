@@ -44,6 +44,7 @@ namespace BusinessLayer
         {
             var result = _context.Questions
                 .Where(a => a.RoomId == roomId)
+                .OrderBy(a => a.Start)
                 .ToList();
 
             return result;
@@ -52,6 +53,7 @@ namespace BusinessLayer
         public List<Question> GetAllQuestions()
         {
             return _context.Questions
+                .OrderBy(a => a.Start)
                 .ToList();
         }
     }

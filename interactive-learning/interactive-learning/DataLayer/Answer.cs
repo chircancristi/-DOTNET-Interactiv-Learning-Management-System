@@ -9,6 +9,7 @@ namespace DataLayer
         public String Content { get; private set; }
         public String Type { get; private set; }
         public Boolean FavouriteAnswerFlag { get; private set; }
+        public DateTime CreatedDate { get; private set; }
 
         public Answer(Guid ownerId, Guid questionId, string content,string type)
         {
@@ -18,6 +19,7 @@ namespace DataLayer
             Content = content;
             FavouriteAnswerFlag = false;
             Type = type;
+            CreatedDate = DateTime.Now.Date;
         }
 
         public void MarkAsFavourite()
