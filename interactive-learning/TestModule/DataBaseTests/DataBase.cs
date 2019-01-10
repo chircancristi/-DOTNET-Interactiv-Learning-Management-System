@@ -30,8 +30,8 @@ namespace TestModule.DataBaseTests
 
             room = new Room(course.Id, profesor.Id);
 
-            question1 = new Question(student1.Id, room.Id, "intrebare desteapta", "Se da cursul asta in sesiune?");
-            question2 = new Question(student2.Id, room.Id, "alta intrebare desteapta", "Putem pleca?");
+            question1 = new Question(student1.Id, room.Id, "student", "Se da cursul asta in sesiune?");
+            question2 = new Question(student2.Id, room.Id, "student", "Putem pleca?");
 
             answer1 = new Answer(profesor.Id, question1.Id, "Nu", "professor");
             answer2 = new Answer(profesor.Id, question2.Id, "Nu", "professor");

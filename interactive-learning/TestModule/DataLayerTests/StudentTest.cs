@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DataLayer;
 using Xunit;
+using Models;
 
 namespace TestModule
 {
@@ -8,6 +9,7 @@ namespace TestModule
     public class StudentTest
     {
         private Student _Student= new Student("Teo", "Ploae");
+        PeopleModel students = new PeopleModel();
 
         [Fact]
         private void When_StudentIsInitialized_IsCreatedSuccessfully()
@@ -19,6 +21,11 @@ namespace TestModule
         {
             _Student.Update("Dorel", "Gelu");
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(_Student.FirstName == "Dorel");
+        }
+        [Fact]
+        private void When_GetAllStudents_IsCalled_ReturnAllStudents()
+        {
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(students.GetAllStudents().Count == 2);
         }
     }
 

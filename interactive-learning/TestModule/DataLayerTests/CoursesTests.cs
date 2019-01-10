@@ -25,5 +25,12 @@ namespace TestModule
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(courses.GetAllCourses().Count == 2);
         }
 
+        [Fact]
+        private void When_GetAllRooms_IsCalled_ReturnAllRooms()
+        {
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(courses.GetAllRooms().Count == 3);
+        }
+
+
     }
 }
