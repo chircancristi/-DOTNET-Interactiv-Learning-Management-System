@@ -12,7 +12,7 @@ namespace TestModule.DataBaseTests
         public Student student1 = new Student("Alex", "Stoica");
         public Student student2 = new Student("Tudor", "Melnic");
 
-        public Profesor profesor = new Profesor("Test", "Mardare", "Franceza");
+        public Profesor profesor = new Profesor();
 
         public Course course;
 
@@ -33,8 +33,8 @@ namespace TestModule.DataBaseTests
             question1 = new Question(student1.Id, room.Id, "intrebare desteapta", "Se da cursul asta in sesiune?");
             question2 = new Question(student2.Id, room.Id, "alta intrebare desteapta", "Putem pleca?");
 
-            answer1 = new Answer(profesor.Id, question1.Id, "Nu");
-            answer2 = new Answer(profesor.Id, question2.Id, "Nu");
+            answer1 = new Answer(profesor.Id, question1.Id, "Nu", "professor");
+            answer2 = new Answer(profesor.Id, question2.Id, "Nu", "professor");
 
 
             MyUnitOfWork.StudentRepository.Add(student1);
