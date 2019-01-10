@@ -63,7 +63,14 @@
                         for (int roomNo = 0; roomNo < @ViewBag.rooms.Count; roomNo++)
                         {
                             <div class="room">
+                              @if (@ViewBag.rooms[roomNo].Open == true)
+                              {
                                 <span>Room @(roomNo + 1) - @ViewBag.rooms[roomNo].Token</span>
+                              }
+                              else
+                              {
+                                <span>Room @(roomNo + 1) </span>
+                              }
                                 <button class="rooms" id=@ViewBag.rooms[roomNo].Id>Join room</button>
                             </div>
 

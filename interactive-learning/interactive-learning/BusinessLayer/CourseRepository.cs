@@ -34,7 +34,7 @@ namespace BusinessLayer
             var course = Entities.First(a => a.Id == Id);
             return course;
         }
-
+        
         public List<Course> GetAllCourses()
         {
             return _context.Courses

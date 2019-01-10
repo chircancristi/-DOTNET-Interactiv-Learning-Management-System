@@ -14,7 +14,7 @@
     <section id="modalRoomcode" class="modal-roomcode">
 
         <div class="modal-roomcode__inputcontainer">
-            <h3 class="roomcode-popup-text">Room code:</h3>
+            <h3 class="roomcode-popup-text">Room code:</h3><span id="error-token"></span>
             <input id="token" class="modal-roomcode__input" type="text" name="Code">
             <input id="tokenButton" onclick="return CheckToken()"  class="chat-form__button" type="submit" value="Submit">
         </div>
@@ -33,12 +33,12 @@
 
 
         </div>
-        <div class="questions__chat-container">
+        <div class="questions__chat-container" id="questionChatContainer">
 
             <form action="/AddQuestion" method="post" id="postQuestion" class="questions__chat-form">
                 <input class="chat-form__input" id="question" type="text">
                 <div class="buttons__container">
-                    <button id="closeRoomJS" class="close-room">Close Room</button>
+                   
                     <input id="questionStudent" onclick="return SendQuestion()" class="chat-form__button" type="submit" value="Submit">
                 </div>
             </form>

@@ -80,6 +80,9 @@ namespace WebApplication
                      defaults: new { controller = "Professor", action = "AddQuestion" });
                 routes.MapRoute("profesor", "AddAnswer",
                      defaults: new { controller = "Professor", action = "AddAnswer" });
+                routes.MapRoute("professor", "SetBestAnswer",
+                 defaults: new { controller = "Professor", action = "SetBestAnswer" });
+
                 routes.MapRoute("student", "student",
                     defaults: new { controller = "Student", action = "Student" });
                 routes.MapRoute("student", "StudentEnterCourse",
@@ -98,7 +101,7 @@ namespace WebApplication
                  defaults: new { controller = "Student", action = "JoinRoomStudent" });
                 routes.MapRoute("student", "LeaveRoomStudent",
                  defaults: new { controller = "Student", action = "LeaveRoomStudent" });
-
+                
 
             });
         }

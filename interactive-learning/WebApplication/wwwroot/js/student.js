@@ -37,15 +37,72 @@ function ShowReplies(question) {
         const replyContentJS = document.getElementById("replyContentJS");
         let body = " ";
         replyContentJS.innerHTML = "";
-        for (let i = 0; i < content.numberOfAnswers; i++)
-            body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
-        console.log(body);
 
-        replyContentJS.innerHTML = body;
-        body = " <form id='addAnswer' action='AddAnswer' method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor' id='answer'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' onclick='return SendAnswer()' type='submit' value='Submit'></div></form>"
 
-        modalContainer.innerHTML = modalContainer.innerHTML + body;
+        if (response.isInRoom === "false") {
+            for (let i = 0; i < content.numberOfAnswers; i++)
+                body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
+            replyContentJS.innerHTML = body;
+            body = " <form id='addAnswer' action='AddAnswer' method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor' id='answer'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' onclick='return SendAnswer()' id='answerButton' type='submit' value='Submit'></div></form>"
+            modalContainer.innerHTML = modalContainer.innerHTML + body;
+            document.getElementById("answer").disabled = false;
+            document.getElementById("answerButton").disabled = false;
 
+        }
+        else {
+            if (response.roomOpen === false) {
+                if (response.favoriteAnswerFlag == false) {
+                    body = body + "<div class='answer'><h1 class='answer-string'>Profesorul nu a ales cel mai bun raspuns</h1></div> "
+                    replyContentJS.innerHTML = body;
+                    
+                }
+                else {
+                    body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[response.favoriteAnswerPosition] + "</h3> <p class='answer-string'>" + content.answers[response.favoriteAnswerPosition] + "</p></div> "
+                    replyContentJS.innerHTML = body;
+                    
+                }
+            }
+            else {
+                if (response.timeExpired == true) {
+                    body = body + "<div class='answer'><h1 class='answer-string'>Timpul a expirat, dupa inchiderea camerei se va afisa raspunsul favorit</h1></div> "
+                    replyContentJS.innerHTML = body;
+
+                }
+                else {
+                    body = body + "<p class='countdown' id='countDown'> </p> "
+                    replyContentJS.innerHTML = body;
+                    body = " <form id='addAnswer'  action='AddAnswer' method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor' id='answer'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input id='answerButton' class='chat-form__button' onclick='return SendAnswer()' type='submit' value='Submit'></div></form>"
+                    modalContainer.innerHTML = modalContainer.innerHTML + body;
+                    console.log(new Date(Date.parse(response.endDate)));
+                    var countDownDate = new Date(Date.parse(response.endDate)).getTime();
+                    var x = setInterval(function () {
+
+                        // Get todays date and time
+                        var now = new Date().getTime();
+                        
+                        // Find the distance between now and the count down date
+                        var distance = countDownDate - now;
+
+                        // Time calculations for days, hours, minutes and seconds
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        // Output the result in an element with id="demo"
+                        document.getElementById("countDown").innerHTML =  minutes + "m " + seconds + "s ";
+
+                        // If the count down is over, write some text 
+                        if (minutes==0 && seconds==0) {
+                            clearInterval(x);
+                            document.getElementById("countDown").innerHTML = "EXPIRED";
+                            document.getElementById("answer").disabled = true;
+                            document.getElementById("answerButton").disabled = true;
+                        }
+                    }, 1000);
+                }
+            }
+        }
+
+        
     })
 
 }
@@ -146,6 +203,8 @@ function showRooms(course) {
             questionsContainer.innerHTML = body;
             document.getElementById("questionStudent").disabled = false;
             document.getElementById("question").disabled = false;
+            document.getElementById("questionChatContainer").style.display = "flex";
+            document.getElementById("questions").style.height = "75%";
             for (let i = 0; i < replys.length; i++) {
                 replys[i].removeEventListener("click", function () {
                 });
@@ -158,6 +217,8 @@ function showRooms(course) {
                     roomState(rooms[i]);                  
                 })
             }
+            var objDiv = document.getElementById("questions");
+            objDiv.scrollTop = objDiv.scrollHeight;
         });
     }
 }
@@ -193,8 +254,19 @@ function roomState(room) {
             console.log(body);
             objDiv.innerHTML = body;
 
+            
+            document.getElementById("questionChatContainer").style.display = "flex";
+            document.getElementById("questions").style.height = "75%";
+
             objDiv.scrollTop = objDiv.scrollHeight;
-            closeRoom.style.display = "none";
+            for (let i = 0; i < replys.length; i++) {
+                replys[i].removeEventListener("click", function () {
+                });
+                replys[i].addEventListener("click", function () {
+                    ShowReplies(replys[i]);
+                })
+            }
+
             room.innerHTML = "Join room";
 
         })
@@ -213,7 +285,7 @@ function CheckToken()
         }
         else
         {
-            document.getElementById("tokenButton").value = "Token gresit";
+            document.getElementById("error-token").innerHTML = "Token gresit";
         }
        
     });
@@ -242,12 +314,12 @@ function JoinRoom(id)
                 ShowReplies(replys[i]);
             })
         }
-
-        closeRoom.style.display = "Block";
+        
         for (let j = 0; j < rooms.length; j++)
             rooms[j].innerHTML = "Join room";
         roomObj.innerHTML = "Leave room";
-
+        document.getElementById("questionChatContainer").style.display = "none";
+        document.getElementById("questions").style.height = "100%";
         objDiv.scrollTop = objDiv.scrollHeight;
     })
 }

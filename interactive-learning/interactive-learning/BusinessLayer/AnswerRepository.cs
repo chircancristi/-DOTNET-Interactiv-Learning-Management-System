@@ -33,7 +33,18 @@ namespace BusinessLayer
         {
             _dbSet.Update(entity);
         }
-
+        public void MarkAsFavourite(Guid Id)
+        {
+            var answer = Entities.First(a => a.Id == Id);
+            answer.MarkAsFavourite();
+            _dbSet.Update(answer);
+        }
+        public void UnMarkAsFavourite(Guid Id)
+        {
+            var answer = Entities.First(a => a.Id == Id);
+            answer.UnMarkAsFavourite();
+            _dbSet.Update(answer);
+        }
         public Answer GetAnswerById(Guid Id)
         {
             var answer = Entities.First(a => a.Id == Id);

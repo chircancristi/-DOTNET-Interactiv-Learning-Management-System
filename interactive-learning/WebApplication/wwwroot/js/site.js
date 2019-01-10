@@ -10,6 +10,7 @@ const modalContainer = document.getElementById("containerJS");
 const roomsContainer = document.getElementById("roomsContainer");
 const closeRoom = document.getElementById("closeRoomJS");
 const questionProfessor = document.getElementById("questionProfessor");
+const bestAnswerButton = document.getElementsByClassName("best-answer");
 
 window.onload = function () {
     var objDiv = document.getElementById("questions");
@@ -80,17 +81,47 @@ function ShowReplies(question) {
         const replyContentJS = document.getElementById("replyContentJS");
         let body = " ";
         replyContentJS.innerHTML = "";
+        console.log(content.inRoom);
         for (let i = 0; i < content.numberOfAnswers; i++)
-            body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
-        console.log(body);
+            if (content.inRoom === false)
+                body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p></div> "
+            else
+            {
+                if (content.bestAnswerPosition == i) {
+                    body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p> <button id='" + content.answersIds[i] + "' class='chat-form__button best-answer'>Cel mai bun raspuns</button></div> "
+                }
+                else {
+                    body = body + "<div class='answer'><h3 class='answer-author'>" + content.authors[i] + "</h3> <p class='answer-string'>" + content.answers[i] + "</p> <button id='" + content.answersIds[i] + "' class='chat-form__button best-answer'>Selecteaza raspunsul</button></div> "
+                }
+            }
+        
+        
 
         replyContentJS.innerHTML = body;
         body = " <form id='addAnswer' action='AddAnswer' method='post' class='modal-container__input'> <input for='answerProfessor' name='answerProfessor' id='answer'  class='chat-form__input chat-form__input--modal' type = 'text' name = 'answerProfessor' > <br><div class='buttons__container buttons__container--modal'><input class='chat-form__button' onclick='return SendAnswer()' type='submit' value='Submit'></div></form>"
 
         modalContainer.innerHTML = modalContainer.innerHTML + body;
+        if (content.inRoom === true) {
 
+            console.log(bestAnswerButton);
+            for (let i = 0; i < bestAnswerButton.length; i++) {
+                bestAnswerButton[i].addEventListener("click", function () {
+                    setBestAnswer(bestAnswerButton[i]);
+                })
+            }
+        }
     })
+}
+function setBestAnswer(answer)
+{
+    var params = 'id=' + answer.id;
 
+    $.post('/SetBestAnswer', params).done(function (response) {
+        for (let i = 0; i < bestAnswerButton.length; i++) {
+            bestAnswerButton[i].innerText = "Selecteaza raspunsul";
+        }
+        answer.innerText = "Cel mai bun raspuns";
+    })
 }
 function RoomState(room)    
 {
@@ -144,7 +175,13 @@ function RoomState(room)
             objDiv.scrollTop = objDiv.scrollHeight;
             closeRoom.style.display = "none";
             room.innerHTML = "Join room";
-
+            for (let i = 0; i < replys.length; i++) {
+                replys[i].removeEventListener("click", function () {
+                });
+                replys[i].addEventListener("click", function () {
+                    ShowReplies(replys[i]);
+                })
+            }
         })
     }
 }

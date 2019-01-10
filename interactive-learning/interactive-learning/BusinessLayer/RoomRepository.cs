@@ -28,6 +28,12 @@ namespace BusinessLayer
         {
             _dbSet.Add(entity);
         }
+        public void CloseRoom(Guid Id)
+        {
+           var room= Entities.First(a => a.Id == Id);
+            room.CloseRoom();
+            _dbSet.Update(room);           
+        }
 
         public Room GetRoomById(Guid Id)
         {

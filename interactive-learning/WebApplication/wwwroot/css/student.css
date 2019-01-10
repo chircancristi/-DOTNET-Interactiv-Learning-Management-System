@@ -261,7 +261,9 @@ body {
     flex-direction: column;
     text-align: center;
 }
-
+.countdown{
+    font-size:200%;
+}
 .answer {
     border: 1px solid black;
     margin-bottom: 1em;

@@ -26,5 +26,9 @@ namespace DataLayer
         {
             FavouriteAnswerFlag = true;
         }
+        public void UnMarkAsFavourite()
+        {
+            FavouriteAnswerFlag = false;
+        }
     }
 }

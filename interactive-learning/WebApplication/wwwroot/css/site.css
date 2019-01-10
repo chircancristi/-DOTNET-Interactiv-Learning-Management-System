@@ -95,6 +95,9 @@ body {
     margin-left: 0.5em;
 }
 
+.best-answer {
+    border-radius: 0px;
+}
 .user,
 .course {
     padding: 1em;
@@ -324,6 +327,7 @@ body {
 .buttons__container--modal{
     justify-content:flex-end;
 }
+
 .footer {
     position: absolute;
     bottom: 0;

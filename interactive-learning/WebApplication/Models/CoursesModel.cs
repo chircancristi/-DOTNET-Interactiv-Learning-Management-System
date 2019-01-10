@@ -63,7 +63,11 @@ namespace Models
             _unitOfWork.CourseRepository.Add(course);
             _unitOfWork.Commit();
         }
-
+        public void CloseRoom(Guid Id)
+        {
+            _unitOfWork.RoomRepository.CloseRoom(Id);
+            _unitOfWork.Commit();
+        }
 
         public List<Course> GetAllCourses()
         {

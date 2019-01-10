@@ -29,6 +29,7 @@ namespace WebApplication.Controllers
 
         public IActionResult Professor()
         {
+            HttpContext.Session.SetString("inRoom", "false");
             this.GenerateProfessor();
             SetData();
             SetQuestions(course.GeneralRoomId);
@@ -80,7 +81,7 @@ namespace WebApplication.Controllers
             SetData();
             SetQuestions(course.GeneralRoomId);
             HttpContext.Session.SetString("roomId", course.GeneralRoomId.ToString());
-
+            HttpContext.Session.SetString("inRoom", "false");
             List<String> questionContent = new List<string>();
             List<Guid> questionId = new List<Guid>();
             for (int i = 0; i < questions.Count; i++)
@@ -105,7 +106,8 @@ namespace WebApplication.Controllers
             this.GenerateProfessor();
             SetData();
             SetQuestions(id);
-            
+
+            HttpContext.Session.SetString("inRoom", "true");
             HttpContext.Session.SetString("roomId", id.ToString());
 
             List<String> questionContent = new List<string>();
@@ -127,10 +129,11 @@ namespace WebApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult CloseRoom(Guid id)
+        public ActionResult CloseRoom()
         {
+            HttpContext.Session.SetString("inRoom", "false");
             String roomId = HttpContext.Session.GetString("roomId");
-           
+            courses.CloseRoom(Guid.Parse(roomId));
             return Json(new
             {
                 Id = roomId
@@ -147,9 +150,17 @@ namespace WebApplication.Controllers
             Answers = interaction.GetAnswersByQuestionId(id);
             ownersName = new List<string>();
             answerContent = new List<string>();
-            
+            List<Guid> answerIds = new List<Guid>();
+            bool inRoom;
+            int bestAnswerPosition = -1;
             for (int i = 0; i < Answers.Count; i++)
             {
+                if (Answers[i].FavouriteAnswerFlag==true)
+                {
+                    bestAnswerPosition = i;
+
+                }
+                answerIds.Add(Answers[i].Id);
                 answerContent.Add(Answers[i].Content);
                 if (Answers[i].Type.Equals("professor"))
                 {
@@ -166,14 +177,24 @@ namespace WebApplication.Controllers
             }
             String idQuestion = id.ToString();
             HttpContext.Session.SetString( "questionId", idQuestion);
-            
+            if(HttpContext.Session.GetString("inRoom")=="true")
+            {
+                inRoom = true;
+            }
+            else
+            {
+                inRoom = false;
+            }
             return Json(new
             {
                 type= "null",
                 Authors = ownersName,
                 Answers = answerContent,
+                answersIds= answerIds,
                 NumberOfAnswers = ownersName.Count,
-                QuestionId = id
+                QuestionId = id,
+                inRoom = inRoom,
+                bestAnswerPosition= bestAnswerPosition
             }); 
         }
        
@@ -188,7 +209,18 @@ namespace WebApplication.Controllers
             @ViewBag.rooms = rooms;
             @ViewBag.course = this.course; 
         }
-        
+        [HttpPost]
+        public ActionResult SetBestAnswer(Guid Id)
+        {
+            Answer answer = interaction.GetAnswer(Id);
+            this.Answers = interaction.GetAnswersByQuestionId(answer.QuestionId);
+            foreach(Answer answers in this.Answers)
+            {
+                answers.UnMarkAsFavourite();
+            }
+            interaction.MarkFavouriteAnswer(Id);
+            return Json(new{ });
+        }
         [HttpPost]
         public ActionResult AddRoom()
         {

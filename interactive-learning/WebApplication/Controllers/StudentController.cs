@@ -86,8 +86,8 @@ namespace WebApplication.Controllers
         public ActionResult LeaveRoomStudent()
         {
             this.GenerateStudent();
-         
-            course=courses.GetCourse(Guid.Parse(HttpContext.Session.GetString("CourseIdStudent")));
+            HttpContext.Session.SetString("IsInRoom", "false");
+            course =courses.GetCourse(Guid.Parse(HttpContext.Session.GetString("CourseIdStudent")));
             HttpContext.Session.SetString("roomId", course.GeneralRoomId.ToString());
             SetQuestions(course.GeneralRoomId);
             List<String> questionContent = new List<string>();
@@ -99,6 +99,7 @@ namespace WebApplication.Controllers
             }
             return Json(new
             {
+
                 type = "null",
                 numberOfQuestion = questions.Count,
                 questionAuthor = this.ownersName,
@@ -111,13 +112,14 @@ namespace WebApplication.Controllers
         public IActionResult JoinRoomStudent(Guid Id)
         {
             this.GenerateStudent();
-          
+            HttpContext.Session.SetString("IsInRoom", "true");
             SetQuestions(Id);
-
-            HttpContext.Session.SetString("roomIdStudent", id.ToString());
+            Room room = courses.GetRoom(Id);
+            HttpContext.Session.SetString("roomIdStudent", Id.ToString());
 
             List<String> questionContent = new List<string>();
             List<Guid> questionId = new List<Guid>();
+          
             for (int i = 0; i < questions.Count; i++)
             {
                 questionContent.Add(questions[i].Content);
@@ -129,8 +131,7 @@ namespace WebApplication.Controllers
                 numberOfQuestion = questions.Count,
                 questionAuthor = this.ownersName,
                 questionContent = questionContent,
-                questionId = questionId
-
+                questionId = questionId,
             });
 
         }
@@ -150,7 +151,8 @@ namespace WebApplication.Controllers
                 type = "answer",
                 answerAuthor = author,
                 answerContent = answer,
-            });
+                
+        });
         }
         [HttpPost]
         public IActionResult AddQuestionStudent(string question)
@@ -178,13 +180,22 @@ namespace WebApplication.Controllers
             String firstName, lastName, fullName;
             this.GenerateStudent();
             SetData();
-
+            Question question = interaction.GetQuestion(id);
             Answers = interaction.GetAnswersByQuestionId(id);
             ownersName = new List<string>();
             answerContent = new List<string>();
+            Room room = courses.GetRoom(Guid.Parse(HttpContext.Session.GetString("roomIdStudent")));
+            bool favoriteAnswerFlag=false;
+            bool timeExpired = false;
+            int favoriteAnswerPosition=0;
 
             for (int i = 0; i < Answers.Count; i++)
             {
+                if (Answers[i].FavouriteAnswerFlag == true)
+                {
+                    favoriteAnswerFlag = true;
+                    favoriteAnswerPosition=i;
+                }
                 answerContent.Add(Answers[i].Content);
                 if (Answers[i].Type.Equals("professor"))
                 {
@@ -198,17 +209,31 @@ namespace WebApplication.Controllers
                 }
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
+               
             }
             String idQuestion = id.ToString();
             HttpContext.Session.SetString("questionIdStudent", idQuestion);
-
+            if (question.Start<= DateTime.Now && question.Stop>=DateTime.Now)
+            {
+                timeExpired = false;
+            }
+            else
+            {
+                timeExpired = true;
+            }
             return Json(new
             {
                 type = "null",
                 Authors = ownersName,
                 Answers = answerContent,
                 NumberOfAnswers = ownersName.Count,
-                QuestionId = id
+                QuestionId = id,
+                isInRoom = HttpContext.Session.GetString("IsInRoom"),
+                roomOpen = room.Open,
+                favoriteAnswerFlag = favoriteAnswerFlag,
+                favoriteAnswerPosition = favoriteAnswerPosition,
+                timeExpired = timeExpired,
+                endDate = question.Stop.ToString()
             });
         }
         [HttpPost]
