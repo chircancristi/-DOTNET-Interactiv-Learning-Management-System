@@ -52,6 +52,13 @@ addRoom.addEventListener("click", function () {
     })
 })
 
+closeRoom.addEventListener("click", function() {
+    $.post('/CloseRoom').done(function (response) {
+        
+        document.getElementById(response.Id).innerText("Room " + responese.number)
+        
+    })
+})
 
 
 function ShowReplies(question) {
