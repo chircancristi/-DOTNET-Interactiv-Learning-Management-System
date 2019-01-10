@@ -23,6 +23,6 @@
   a) User management<br>
   b) Courses management<br> 
   c) Answer/Questions management
- - Baza de date din iterația trecuta a fost împarțită în 3 baze de date mai micii penru a integrarea 
+ - Baza de date din iterația trecuta a fost împarțită în 3 baze de date mai mici penru  integrarea 
  microserviciilor menționate mai sus. 
  - S-au scris modelele pentru a obține și a scrie date in bazele de date menționate.
