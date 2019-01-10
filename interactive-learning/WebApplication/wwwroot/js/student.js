@@ -7,7 +7,8 @@ const rooms = document.getElementsByClassName("rooms");
 const replys = document.getElementsByClassName("questions-answer__trigger");
 const modal = document.getElementById("modalJS");
 const modal_roomcode = document.getElementById("modalRoomcode")
-
+const questionsContainer = document.getElementById("questions");
+ 
 for (let i = 0; i < courses.length; i++) {
     courses[i].addEventListener("click", function () {
         showRooms(courses[i]);
@@ -51,8 +52,8 @@ window.onload = function () {
 }
 
 function showRooms(course) {
-    const room = document.getElementById("room" + course.id);
-    const arrow = document.getElementById(course.id + "arrow")
+    const room = document.getElementById("room " + course.id);
+    const arrow = document.getElementById(course.id + " arrow")
 
     if (room.style.display === "block") {
         room.style.display = "none";
@@ -63,9 +64,9 @@ function showRooms(course) {
     }
     else {
         for (let i = 0; i < courses.length; i++) {
-            document.getElementById("room" + courses[i].id).style.display = "none";
-            document.getElementById(courses[i].id + "arrow").classList.remove('fa-arrow-down');
-            document.getElementById(courses[i].id + "arrow").classList.add('fa-arrow-up');
+            document.getElementById("room " + courses[i].id).style.display = "none";
+            document.getElementById(courses[i].id + " arrow").classList.remove('fa-arrow-down');
+            document.getElementById(courses[i].id + " arrow").classList.add('fa-arrow-up');
             courses[i].style.backgroundColor = "#6CD6CE";
         }
 
@@ -73,5 +74,23 @@ function showRooms(course) {
         arrow.classList.remove('fa-arrow-up');
         arrow.classList.add('fa-arrow-down');
         course.style.backgroundColor = "rgba(128, 128, 128, 0.6)";
+        param = "id=" + course.id;
+        $.post('/StudentEnterCourse', param).done(function (response) {
+            let roomsContainer = document.getElementById("room " + course.id);
+            roomsContainer.innerHTML = "";
+            questionsContainer.innerHTML = "";
+            let body = "";
+            for (let i = 0; i < response.numberOfRooms; i++) {
+             body = body+ "<div class='room'><span> Room "+  i  +"</span><button class='rooms' id="+response.roomsId[i] +"> Join room</button ></div >";
+            }
+            roomsContainer.innerHTML = body;
+            body = " ";
+            for (let i = 0; i < response.numberOfQuestion; i++) {
+                body = body+"<div class='question'><h3 class='question-author' >"+response.owners[i]+"</h3 ><p class='question-string'>"+ response.questionsContent[i]+" </p><a class='questions-answer__trigger' id='"+response.questionId[i]+"' href='#'> Vezi raspunsuri</a></div >"
+            }
+            questionsContainer.innerHTML = body;
+            $("#questionStudent").prop('disabled', false);​
+            $("#question").prop('disabled', false);​
+         });
     }
 }

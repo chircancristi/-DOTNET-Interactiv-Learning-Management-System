@@ -6,6 +6,7 @@ using DataLayer;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Controllers
 {
@@ -18,9 +19,12 @@ namespace WebApplication.Controllers
         PeopleModel people = new PeopleModel();
         List<Question> questions = new List<Question>();
         List<String> ownersName = new List<String>();
-        Student student = new Student("Tudor", "Melnic");
-        Guid id = Guid.Parse("7ACB0120-0474-4917-AF6D-178287E667C8");
-        List<String> coursesNames = new List<String>();
+        Student student ;
+        Guid id = Guid.Parse("F6722404-295C-4C96-BADE-8DDE246F596B");
+        List<Course> coursesList = new List<Course>();
+        List<Guid> roomIds = new List<Guid>();
+        List<Guid> questionIds = new List<Guid>();
+        List<String> questionContent = new List<String>();
 
         public IActionResult Student()
         {
@@ -32,8 +36,8 @@ namespace WebApplication.Controllers
         private void SetData()
         {
             foreach (Course course in this.courses.GetAllCourses())
-                coursesNames.Add(course.Name);
-            @ViewBag.courses = coursesNames;
+                coursesList.Add(course);
+            @ViewBag.courses = coursesList;
 
             //SetRooms(); <------------
             //SetQuestions();
@@ -46,24 +50,40 @@ namespace WebApplication.Controllers
             private void GenerateStudent()
         {
             student = people.GetStudent(this.id);
-
+           
         }
-
-
-        private void SetRooms()
+        [HttpPost]
+        public ActionResult StudentEnterCourse ( Guid id)
         {
-            foreach (Room room in courses.GetAllRoomsByCourseId(course.Id))
+            course = courses.GetCourse(id);
+            HttpContext.Session.SetString("roomId", id.ToString());
+            rooms = courses.GetAllRoomsByCourseId(id);
+            for (int i=0; i < rooms.Count; i++)
             {
-                rooms.Add(room);
-                
+                roomIds.Add(rooms[i].Id);
+
             }
+            SetQuestions(course.GeneralRoomId);
+
+            return Json(new
+            {
+               numberOfQuestion = questions.Count,
+               numberOfRooms = rooms.Count,
+               roomsId = roomIds,
+               owners = ownersName,
+               questionsContent= questionContent,
+               questionId = questionIds
+            });
 
         }
 
-        private void SetQuestions()
+       
+
+        private void SetQuestions(Guid id)
         {
+            questionIds = new List<Guid>();
             String firstName, lastName, fullName;
-            questions = interaction.GetQuestionsByRoomId(this.course.GeneralRoomId);
+            questions = interaction.GetQuestionsByRoomId(id);
 
             for (int i = 0; i < questions.Count; i++)
             {
@@ -80,6 +100,8 @@ namespace WebApplication.Controllers
                 }
                 fullName = firstName + " " + lastName;
                 ownersName.Add(fullName);
+                questionContent.Add(questions[i].Content);
+                questionIds.Add(questions[i].Id);
             }
         }
     }

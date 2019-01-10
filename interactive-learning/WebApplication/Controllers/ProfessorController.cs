@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Controllers
 {
+
     public class ProfessorController : Controller
     {
         InteractionModel interaction = new InteractionModel();
