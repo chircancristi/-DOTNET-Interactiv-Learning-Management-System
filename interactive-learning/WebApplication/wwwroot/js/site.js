@@ -40,7 +40,7 @@ for (let i = 0; i < rooms.length; i++) {
 addRoom.addEventListener("click", function () {
 
     $.post('/AddRoom').done(function (response) {
-        let body = "<div class='room'> <span>Room " + response.number + "</span> <button class='rooms' id=" + response.id + ">Join room</button> </div>";
+        let body = "<div class='room'> <span>Room " + response.number + " - "+ response.token +"</span> <button class='rooms' id=" + response.id + ">Join room</button> </div>";
         roomsContainer.innerHTML = roomsContainer.innerHTML + body;
         for (let i = 0; i < rooms.length; i++) {
             rooms[i].removeEventListener("click", function () {
@@ -52,6 +52,17 @@ addRoom.addEventListener("click", function () {
     })
 })
 
+closeRoom.addEventListener("click", function() {
+    $.post('/CloseRoom').done(function (response) {
+        
+        let roomContent = document.getElementById(response.Id).innerText;
+        var partsArray = roomContent.split(' ');
+        
+        var roomSpan = document.getElementById(response.Id).parentNode.children;
+        
+        roomSpan[0].innerText(partsArray[0] + ' ' + partsArray[1]);        
+    })
+})
 
 
 function ShowReplies(question) {
@@ -118,7 +129,7 @@ function RoomState(room)
 
     }
     else {
-        $.post('/CloseRoom').done(function (response) {
+        $.post('/LeaveRoom').done(function (response) {
             var objDiv = document.getElementById("questions");
 
             console.log(response);

@@ -74,6 +74,8 @@ namespace WebApplication
                      defaults: new { controller = "Professor", action = "JoinRoom" });
                 routes.MapRoute("profesor", "CloseRoom",
                      defaults: new { controller = "Professor", action = "CloseRoom" });
+                routes.MapRoute("profesor", "LeaveRoom",
+                 defaults: new { controller = "Professor", action = "LeaveRoom" });
                 routes.MapRoute("profesor", "AddQuestion",
                      defaults: new { controller = "Professor", action = "AddQuestion" });
                 routes.MapRoute("profesor", "AddAnswer",
