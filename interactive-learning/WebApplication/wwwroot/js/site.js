@@ -40,7 +40,7 @@ for (let i = 0; i < rooms.length; i++) {
 addRoom.addEventListener("click", function () {
 
     $.post('/AddRoom').done(function (response) {
-        let body = "<div class='room'> <span>Room " + response.number + "</span> <button class='rooms' id=" + response.id + ">Join room</button> </div>";
+        let body = "<div class='room'> <span>Room " + response.number + " - "+ response.token +"</span> <button class='rooms' id=" + response.id + ">Join room</button> </div>";
         roomsContainer.innerHTML = roomsContainer.innerHTML + body;
         for (let i = 0; i < rooms.length; i++) {
             rooms[i].removeEventListener("click", function () {
@@ -125,7 +125,7 @@ function RoomState(room)
 
     }
     else {
-        $.post('/CloseRoom').done(function (response) {
+        $.post('/LeaveRoom').done(function (response) {
             var objDiv = document.getElementById("questions");
 
             console.log(response);

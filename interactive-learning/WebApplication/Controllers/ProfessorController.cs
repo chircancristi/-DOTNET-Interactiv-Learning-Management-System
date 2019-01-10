@@ -16,7 +16,7 @@ namespace WebApplication.Controllers
         CoursesModel courses = new CoursesModel();
         PeopleModel people = new PeopleModel();
         Profesor profesor = new Profesor();
-        Guid id = Guid.Parse("39C92F2E-9001-412A-B688-688C3DF24CF9");
+        Guid id = Guid.Parse("F3C3D2EB-297E-4E80-91AC-34259A937E3A");
         Course course = new Course();
         List<Student> students = new List<Student>();
         List<Question> questions = new List<Question>();
@@ -73,7 +73,7 @@ namespace WebApplication.Controllers
         }
         
         [HttpPost]
-        public ActionResult CloseRoom()
+        public ActionResult LeaveRoom()
         {
             this.GenerateProfessor();
             SetData();
@@ -188,7 +188,8 @@ namespace WebApplication.Controllers
             return Json(new {
                 type="null",
                 number=rooms.Count,
-                id= rooms[rooms.Count-1]
+                token= rooms[rooms.Count-1].Token,
+                id= rooms[rooms.Count-1].Id
             });
         }
 

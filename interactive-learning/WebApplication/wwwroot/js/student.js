@@ -8,7 +8,8 @@ const replys = document.getElementsByClassName("questions-answer__trigger");
 const modal = document.getElementById("modalJS");
 const modal_roomcode = document.getElementById("modalRoomcode")
 const questionsContainer = document.getElementById("questions");
- 
+document.getElementById("questionStudent").disabled = true;
+document.getElementById("question").disabled = true;
 for (let i = 0; i < courses.length; i++) {
     courses[i].addEventListener("click", function () {
         showRooms(courses[i]);
@@ -61,6 +62,9 @@ function showRooms(course) {
         arrow.classList.add('fa-arrow-up');
         course.style.backgroundColor = "#6CD6CE";
 
+        questionsContainer.innerHTML = "<div class='question'> <h1 class='question-string' > Please select a course </h1 ></div >";
+        document.getElementById("questionStudent").disabled = true;
+        document.getElementById("question").disabled = true;
     }
     else {
         for (let i = 0; i < courses.length; i++) {
@@ -81,7 +85,7 @@ function showRooms(course) {
             questionsContainer.innerHTML = "";
             let body = "";
             for (let i = 0; i < response.numberOfRooms; i++) {
-             body = body+ "<div class='room'><span> Room "+  i  +"</span><button class='rooms' id="+response.roomsId[i] +"> Join room</button ></div >";
+             body = body+ "<div class='room'><span> Room "+  i+1  +"</span><button class='rooms' id="+response.roomsId[i] +"> Join room</button ></div >";
             }
             roomsContainer.innerHTML = body;
             body = " ";
@@ -89,8 +93,8 @@ function showRooms(course) {
                 body = body+"<div class='question'><h3 class='question-author' >"+response.owners[i]+"</h3 ><p class='question-string'>"+ response.questionsContent[i]+" </p><a class='questions-answer__trigger' id='"+response.questionId[i]+"' href='#'> Vezi raspunsuri</a></div >"
             }
             questionsContainer.innerHTML = body;
-            $("#questionStudent").prop('disabled', false);​
-            $("#question").prop('disabled', false);​
-         });
+            document.getElementById("questionStudent").disabled = false;
+            document.getElementById("question").disabled = false;
+        });
     }
 }
