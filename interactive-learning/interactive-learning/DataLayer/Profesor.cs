@@ -17,6 +17,7 @@ namespace DataLayer
         public void Update(string firstName, string lastName, Guid courseId)
         {
             SetProperties(firstName, lastName, courseId);
+
         }
         
         private void SetProperties(string firstName, string lastName, Guid courseId)
