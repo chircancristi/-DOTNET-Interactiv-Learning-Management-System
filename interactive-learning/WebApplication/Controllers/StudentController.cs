@@ -20,7 +20,7 @@ namespace WebApplication.Controllers
         List<Question> questions = new List<Question>();
         List<String> ownersName = new List<String>();
         Student student ;
-        Guid id = Guid.Parse("F6722404-295C-4C96-BADE-8DDE246F596B");
+        Guid id = Guid.Parse("2DC60396-272B-4F54-B8EC-5F2F918284F0");
         List<Course> coursesList = new List<Course>();
         List<Guid> roomIds = new List<Guid>();
         List<Guid> questionIds = new List<Guid>();
@@ -53,10 +53,28 @@ namespace WebApplication.Controllers
            
         }
         [HttpPost]
+        public IActionResult AddQuestion(string question)
+        {
+            String author;
+            this.GenerateStudent();
+            Question newQuestion = new Question(this.id, Guid.Parse(HttpContext.Session.GetString("roomId")), "student", question);
+            interaction.AddQuestion(newQuestion);
+            SetData();
+            SetQuestions(Guid.Parse(HttpContext.Session.GetString("roomId")));
+            author = student.LastName + " " + student.FirstName;
+            return Json(new
+            {
+                type = "question",
+                questionAuthor = author,
+                question=questions 
+
+            });
+        }
+        [HttpPost]
         public ActionResult StudentEnterCourse ( Guid id)
         {
             course = courses.GetCourse(id);
-            HttpContext.Session.SetString("roomId", id.ToString());
+            HttpContext.Session.SetString("roomIdStudent", id.ToString());
             rooms = courses.GetAllRoomsByCourseId(id);
             for (int i=0; i < rooms.Count; i++)
             {
@@ -74,9 +92,11 @@ namespace WebApplication.Controllers
                questionsContent= questionContent,
                questionId = questionIds
             });
-
         }
-
+        private void GenerateStudent(Guid id)
+        {
+            student = people.GetStudent(this.id);
+        }
        
 
         private void SetQuestions(Guid id)
