@@ -44,12 +44,14 @@ namespace BusinessLayer
         {
             return _context.Answers
                .Where(a => a.QuestionId == questionId)
+               .OrderBy(x => x.CreatedDate)
                .ToList();
         }
 
         public List<Answer> GetAllAnswers()
         {
             return _context.Answers
+                .OrderBy(x => x.CreatedDate)
                 .ToList();
         }
     }

@@ -38,6 +38,7 @@ namespace BusinessLayer
         public List<Course> GetAllCourses()
         {
             return _context.Courses
+            .OrderBy(x => x.Name)
             .ToList();
         }
     }
