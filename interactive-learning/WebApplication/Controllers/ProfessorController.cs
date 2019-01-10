@@ -22,9 +22,10 @@ namespace WebApplication.Controllers
         List<Question> questions = new List<Question>();
         List<String> ownersName = new List<String>();
         List<String> answerContent = new List<String>();
-        List<Room> rooms = new List<Room>();
         List<Answer> Answers = new List<Answer>();
 
+        List<Room> rooms = new List<Room>();
+       
 
         public IActionResult Professor()
         {

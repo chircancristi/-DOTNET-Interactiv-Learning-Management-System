@@ -257,7 +257,7 @@ body {
     height: 70%;
     overflow: auto;
     display: flex;
-    justify-content: space-between;
+   
     flex-direction: column;
     text-align: center;
 }

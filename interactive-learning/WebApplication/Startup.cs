@@ -80,12 +80,25 @@ namespace WebApplication
                      defaults: new { controller = "Professor", action = "AddQuestion" });
                 routes.MapRoute("profesor", "AddAnswer",
                      defaults: new { controller = "Professor", action = "AddAnswer" });
-                routes.MapRoute("Student", "student",
+                routes.MapRoute("student", "student",
                     defaults: new { controller = "Student", action = "Student" });
-                routes.MapRoute("Student", "StudentEnterCourse",
+                routes.MapRoute("student", "StudentEnterCourse",
                     defaults: new { controller = "Student", action = "StudentEnterCourse" });
+                routes.MapRoute("student", "AddQuestionStudent",
+                  defaults: new { controller = "Student", action = "AddQuestionStudent" });
+                routes.MapRoute("student", "AddAnswerStudent",
+                  defaults: new { controller = "Student", action = "AddAnswerStudent" });
+                routes.MapRoute("student", "StudentAnswers",
+                  defaults: new { controller = "Student", action = "StudentAnswers" });
+                routes.MapRoute("student", "CheckRoomExpiration",
+                 defaults: new { controller = "Student", action = "CheckRoomExpiration" });
+                routes.MapRoute("student", "CheckToken",
+                 defaults: new { controller = "Student", action = "CheckToken" });
+                routes.MapRoute("student", "JoinRoomStudent",
+                 defaults: new { controller = "Student", action = "JoinRoomStudent" });
+                routes.MapRoute("student", "LeaveRoomStudent",
+                 defaults: new { controller = "Student", action = "LeaveRoomStudent" });
 
-                
 
             });
         }

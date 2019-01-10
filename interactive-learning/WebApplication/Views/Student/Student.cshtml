@@ -6,32 +6,8 @@
 <div class="container-flex">
 
     <section id="modalJS" class="modal-replyes">
-        <div class="modal-container">
-            <div class="modal-container__replyes">
+        <div class="modal-container" id="containerJS">
 
-                <div class="answer">
-                    <h3 class="answer-author">Popescu George</h3>
-                    <p class="answer-string"> Va pup! </p>
-                </div>
-                <div class="answer">
-                    <h3 class="answer-author">Popescu George</h3>
-                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
-                </div>
-                <div class="answer">
-                    <h3 class="answer-author">Popescu George</h3>
-                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
-                </div>
-                <div class="answer">
-                    <h3 class="answer-author">Popescu George</h3>
-                    <p class="answer-string"> Stie cineva sa rezolve problema aia grea ? </p>
-                </div>
-            </div>
-            <div class="modal-container__input">
-                <input class="chat-form__input chat-form__input--modal" type="text" name="question"><br>
-                <div class="buttons__container buttons__container--modal">
-                    <input class="chat-form__button" type="submit" value="Submit">
-                </div>
-            </div>
         </div>
     </section>
 
@@ -39,8 +15,8 @@
 
         <div class="modal-roomcode__inputcontainer">
             <h3 class="roomcode-popup-text">Room code:</h3>
-            <input class="modal-roomcode__input" type="text" name="Code">
-            <input class="chat-form__button" type="submit" value="Submit">
+            <input id="token" class="modal-roomcode__input" type="text" name="Code">
+            <input id="tokenButton" onclick="return CheckToken()"  class="chat-form__button" type="submit" value="Submit">
         </div>
 
 
@@ -58,10 +34,12 @@
 
         </div>
         <div class="questions__chat-container">
-            <form method="POST" class="questions__chat-form">
-                <input id="question"  for="questionStudent" class="chat-form__input" type="text" name="questionStudent"><br>
+
+            <form action="/AddQuestion" method="post" id="postQuestion" class="questions__chat-form">
+                <input class="chat-form__input" id="question" type="text">
                 <div class="buttons__container">
-                    <input  id="questionStudent" class="chat-form__button" type="submit" value="Submit">
+                    <button id="closeRoomJS" class="close-room">Close Room</button>
+                    <input id="questionStudent" onclick="return SendQuestion()" class="chat-form__button" type="submit" value="Submit">
                 </div>
             </form>
 
