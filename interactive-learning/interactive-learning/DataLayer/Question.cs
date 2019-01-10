@@ -19,8 +19,8 @@ namespace DataLayer
             RoomId = roomId;
             Type = type;
             Content = content;
-            Start = DateTime.Now.Date;
-            Stop = DateTime.Now.Date.AddMinutes(5);
+            Start = DateTime.Now;
+            Stop = Start.AddMinutes(5);
         }
 
         public void SetTimeToAnswer(int minutes)

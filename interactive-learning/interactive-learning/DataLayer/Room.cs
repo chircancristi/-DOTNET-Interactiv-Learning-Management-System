@@ -16,7 +16,7 @@ namespace DataLayer
             CourseId = courseId;
             ProfesorId = profesorId;
             Open = true;
-            CreatedDate = DateTime.Now.Date;
+            CreatedDate = DateTime.Now;
             Token = GenerateToken();
         }
 

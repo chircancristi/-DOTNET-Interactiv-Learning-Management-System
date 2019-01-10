@@ -19,7 +19,7 @@ namespace DataLayer
             Content = content;
             FavouriteAnswerFlag = false;
             Type = type;
-            CreatedDate = DateTime.Now.Date;
+            CreatedDate = DateTime.Now;
         }
 
         public void MarkAsFavourite()
