@@ -26,3 +26,22 @@
  - Baza de date din iterația trecuta a fost împarțită în 3 baze de date mai mici penru  integrarea 
  microserviciilor menționate mai sus. 
  - S-au scris modelele pentru a obține și a scrie date in bazele de date menționate.
+ 
+ ### Itereția 3
+ 
+ - S-au adaugat în modele urmatoarele funcții:
+    1) getStudentsFromCourseWithID
+    2) getStudentByRoomID
+    3) getAnswerFromQuestionID
+    4) getQuestionsByRoomID
+  - S-au scris controllerele pentru pagina de student/professor
+  - S-au implementat urmatoarele functionalității
+     1) Profesorul poate deschide o cameră
+     2) Profesorul poate pune întrebării pe curs/camere
+     3) Profesorul poate aleg răspunsul preferat la o întrebare  
+     4) Studentul poate intra pe un room pe baza de token
+     5) Studentul poate raspunde la întrebăriile de pe curs/room
+     6) Studentul poate pune întrebării pe course 
+
+  ### Iterația 4 
+  - Profesorul poate alege daca raspunsul studentului este corect 
